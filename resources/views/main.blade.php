@@ -298,8 +298,8 @@
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th>Name</th>
-                        <th>Position</th>
+                        <th>Nama</th>
+                        <th>Posis</th>
                         <th>Office</th>
                         <th>Salary</th>
                       </tr>
