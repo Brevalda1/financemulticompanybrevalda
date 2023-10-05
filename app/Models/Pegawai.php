@@ -15,7 +15,7 @@ class Pegawai extends Model
     public $fillable = ['Username','Password','Nama_pegawai','Role','Nomor_telp_pegawai','Jabatan_pegawai'];
     public function add($username,$password,$nama_pegawai,$role,$Nomor_telp_pegawai,$Jabatan_pegawai)
     {
-        $new = new Pegawais();
+        $new = new Pegawai();
         $new->Username = $username;
         $new->Password = $password;
         $new->Nama_pegawai = $nama_pegawai;
