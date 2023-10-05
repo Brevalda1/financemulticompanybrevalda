@@ -6,6 +6,7 @@ use App\Http\Controllers\biayaoperationalproyekController;
 use App\Http\Controllers\biayaoperationalnonbudgetingController;
 use App\Http\Controllers\biayapribadiController;
 use App\Http\Controllers\biayalainlainController;
+use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('formbiayaoperationalproyek');
 // });
 
+
 Route::get("/", [gajipegawaiController::class,"Gajipegawai"]);
+Route::get("/login", [loginController::class,"Login"]);
+Route::get("/users",[loginController::class,"Userss"]);
+Route::post("/login",[loginController::class,"Plogin"]);
 Route::get("/gajipegawaiform", [gajipegawaiController::class,"Gajipegawaiform"]);
 Route::get("/pencatatanrekening", [pencatatanrekeningController::class,"Pencatatanrekening"]);
 Route::get("/pencatatanrekeningform", [pencatatanrekeningController::class,"Pencatatanrekeningform"]);
