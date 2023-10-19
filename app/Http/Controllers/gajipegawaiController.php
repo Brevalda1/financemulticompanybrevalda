@@ -10,9 +10,9 @@ use App\Models\GajiPegawai;
 
 class gajipegawaiController extends Controller
 {
-    public function Gajipegawai(){
-        return view("showgajipegawai");
-    }
+    // public function Gajipegawai(){
+    //     return view("showgajipegawai");
+    // }
     public function Gajipegawaiform(){
         return view("formgajipegawai");
     }
@@ -60,8 +60,9 @@ class gajipegawaiController extends Controller
             $param['datas'] = Session::get('datas');
         }
         else{
-            $data = DB::select("select * from pegawai_gaji");
+            $data = DB::select("select * from pegawai_gaji order by created_at desc");
             $param['datas'] = $data;
+            // dd($param['datas']);
         }
         return view("showgajipegawai",$param);
     }
