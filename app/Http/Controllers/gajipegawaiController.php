@@ -53,4 +53,16 @@ class gajipegawaiController extends Controller
         
 
     }
+
+    public function Gajipegawaiselect()
+    {
+        if(Session::Has('datas')){
+            $param['datas'] = Session::get('datas');
+        }
+        else{
+            $data = DB::select("select * from pegawai_gaji");
+            $param['datas'] = $data;
+        }
+        return view("showgajipegawai",$param);
+    }
 }

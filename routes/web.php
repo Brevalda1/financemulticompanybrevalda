@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get("/", [gajipegawaiController::class,"Gajipegawai"]);
+Route::get("/", [gajipegawaiController::class,"Gajipegawaiselect"]);
 Route::get("/login", [loginController::class,"Login"]);
 Route::get("/users",[loginController::class,"Userss"]);
 Route::post("/login",[loginController::class,"Plogin"]);
