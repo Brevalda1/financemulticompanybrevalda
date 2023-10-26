@@ -75,8 +75,11 @@
                           <td>{{$showgajipegawai->nomor_rekening_pegawai_gaji}}</td>
                           <td>{{$showgajipegawai->nama_bank_pegawai_gaji}}</td>
                 
-                          <td><button class="btn btn-info">edit</button>
+                          <td><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button>
                             <button class="btn btn-danger">Hapus</button></td>
+
+
+
                       </tr>
                       @endforeach
                       
