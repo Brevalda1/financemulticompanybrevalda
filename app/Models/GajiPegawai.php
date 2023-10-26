@@ -29,4 +29,7 @@ class GajiPegawai extends Model
         $new->nama_bank_pegawai_gaji=$nama_bank_pegawai_gaji;
         $new->save();
     }
+
+    
+
 }

@@ -68,35 +68,43 @@ class gajipegawaiController extends Controller
     }
 
     public function GajiPegawaiupdate(Request $brg, $id){
-        $stok_awal = produk::where('id_produk',$id)
-                            ->value('stok_produk');
-        $updt_stok = $brg->stok_produk; //Stock terbaru
-        $stok_berubah = $updt_stok - $stok_awal;
-        $updt_hBeli = $brg->harga_beli;
-        $updt_hJual = $brg->harga_jual;
-        $updt_nama_dist = $brg->nama_dist;
-        $updt_nomor_dist = $brg->nomor_dist;
-        if ($stok_awal == $updt_stok) {
-            produk::where('id_produk',$id)
-                ->update(['harga_beli_produk' => $updt_hBeli, 'harga_jual_produk' => $updt_hJual, 'nama_distributor' => $updt_nama_dist, 'nomor_hp_distributor' => $updt_nomor_dist]);
-        }else{
-            $newMutasi = new mutasi;
-            $newMutasi->id_produk = $id;
-            $newMutasi->status_mutasi = 1;
-            $newMutasi->waktu_mutasi = Carbon::now();
-            $newMutasi->stok_awal = $stok_awal;
-            $newMutasi->stok_berubah = $stok_berubah;
-            $newMutasi->stok_akhir = $updt_stok;
+        // $stok_awal = produk::where('id_produk',$id)
+        //                     ->value('stok_produk');
+        // $updt_stok = $brg->stok_produk; //Stock terbaru
+        // $stok_berubah = $updt_stok - $stok_awal;
+        // $updt_hBeli = $brg->harga_beli;
+        // $updt_hJual = $brg->harga_jual;
+        // $updt_nama_dist = $brg->nama_dist;
+        // $updt_nomor_dist = $brg->nomor_dist;
+        // if ($stok_awal == $updt_stok) {
+        //     produk::where('id_produk',$id)
+        //         ->update(['harga_beli_produk' => $updt_hBeli, 'harga_jual_produk' => $updt_hJual, 'nama_distributor' => $updt_nama_dist, 'nomor_hp_distributor' => $updt_nomor_dist]);
+        // }else{
+        //     $newMutasi = new mutasi;
+        //     $newMutasi->id_produk = $id;
+        //     $newMutasi->status_mutasi = 1;
+        //     $newMutasi->waktu_mutasi = Carbon::now();
+        //     $newMutasi->stok_awal = $stok_awal;
+        //     $newMutasi->stok_berubah = $stok_berubah;
+        //     $newMutasi->stok_akhir = $updt_stok;
 
-            $newMutasi->save();
+        //     $newMutasi->save();
 
-            produk::where('id_produk',$id)
-                ->update(['harga_beli_produk' => $updt_hBeli, 
-                            'harga_jual_produk' => $updt_hJual, 
-                            'nama_distributor' => $updt_nama_dist, 
-                            'nomor_hp_distributor' => $updt_nomor_dist, 
-                            'stok_produk' => $updt_stok]);
-        }
-        return redirect("/admin");
+        //     produk::where('id_produk',$id)
+        //         ->update(['harga_beli_produk' => $updt_hBeli, 
+        //                     'harga_jual_produk' => $updt_hJual, 
+        //                     'nama_distributor' => $updt_nama_dist, 
+        //                     'nomor_hp_distributor' => $updt_nomor_dist, 
+        //                     'stok_produk' => $updt_stok]);
+        // }
+
+        DB::table('pegawai_gaji')->where('id_pegawai_gaji', $req->ID)->update([
+            'Nama' => $req->Nama,
+            'Potongan' => $req->Potongan,
+            'Deskripsi' => $req->Deskripsi
+        ]);
+        return redirect("/admin/Promo");
+
+        return redirect("/");
     }
 }
