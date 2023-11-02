@@ -32,6 +32,8 @@ Route::get("/login", [loginController::class,"Login"]);
 Route::get("/users",[loginController::class,"Userss"]);
 Route::post("/login",[loginController::class,"Plogin"]);
 Route::get("/gajipegawaiform", [gajipegawaiController::class,"Gajipegawaiform"]);
+Route::get("/updategajipegawaiform/{no}", [gajipegawaiController::class,"Gajipegawaiedit"]);
+Route::post("/updategajipegawaiform/{no}", [gajipegawaiController::class,"GajiPegawaiupdate"]);
 Route::post("/gajipegawaiform", [gajipegawaiController::class,"Gajipegawaiinsert"]);
 Route::get("/pencatatanrekening", [pencatatanrekeningController::class,"Pencatatanrekening"]);
 Route::get("/pencatatanrekeningform", [pencatatanrekeningController::class,"Pencatatanrekeningform"]);

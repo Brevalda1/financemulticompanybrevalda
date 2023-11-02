@@ -30,6 +30,32 @@ class GajiPegawai extends Model
         $new->save();
     }
 
+    function getGajipegawaiById($id)
+    {
+        $dt =  GajiPegawai::where('id_pegawai_gaji', '=', $id)
+            ->get();
+        return $dt;
+    }
+
+    function updateGajipegawai($id_pegawai_gaji,$nomor_ktp_pegawai_gaji,$nama_pegawai_gaji,$jumlah_kehadiran_pegawai_gaji,$rate_pegawai_gaji,$tambahan_lainlain_pegawai_gaji,$keterangan_pegawai_gaji,$total_pegawai_gaji,$jabatan_pegawai_gaji,$nomor_rekening_pegawai_gaji,$nama_bank_pegawai_gaji)
+    
+    {
+        // dd($nomor_ktp_pegawai_gaji);
+        $ins = GajiPegawai::find($id_pegawai_gaji);
+        // $ins->id_pegawai_gaji = $id_pegawai_gaji;
+        $ins->nomor_ktp_pegawai_gaji = $nomor_ktp_pegawai_gaji;
+        $ins->nama_pegawai_gaji = $nama_pegawai_gaji;
+        $ins->jumlah_kehadiran_pegawai_gaji = $jumlah_kehadiran_pegawai_gaji;
+        $ins->rate_pegawai_gaji=$rate_pegawai_gaji;
+        $ins->tambahan_lainlain_pegawai_gaji=$tambahan_lainlain_pegawai_gaji;
+        $ins->keterangan_pegawai_gaji=$keterangan_pegawai_gaji;
+        $ins->total_pegawai_gaji=$total_pegawai_gaji;
+        $ins->jabatan_pegawai_gaji=$jabatan_pegawai_gaji;
+        $ins->nomor_rekening_pegawai_gaji=$nomor_rekening_pegawai_gaji;
+        $ins->nama_bank_pegawai_gaji=$nama_bank_pegawai_gaji;
+        $ins->save();
+    }
+
     
 
 }

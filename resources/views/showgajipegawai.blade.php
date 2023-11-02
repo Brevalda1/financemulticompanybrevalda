@@ -75,7 +75,7 @@
                           <td>{{$showgajipegawai->nomor_rekening_pegawai_gaji}}</td>
                           <td>{{$showgajipegawai->nama_bank_pegawai_gaji}}</td>
                 
-                          <td><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button>
+                          <td><a href="/updategajipegawaiform/{{$showgajipegawai->id_pegawai_gaji}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
                             <button class="btn btn-danger">Hapus</button></td>
 
 

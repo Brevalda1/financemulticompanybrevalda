@@ -66,45 +66,86 @@ class gajipegawaiController extends Controller
         }
         return view("showgajipegawai",$param);
     }
+    public function Gajipegawaiedit($no)
+    {
+        $new = new GajiPegawai();
+        // $barang = new Barang();
+        $arrBarang = $new->getGajipegawaiById($no);
+        foreach ($arrBarang as $dt) {
+            $data['id_pegawai_gaji'] = $dt->id_pegawai_gaji;
+            $data['nomor_ktp_pegawai_gaji'] = $dt->nomor_ktp_pegawai_gaji;
+            $data['nama_pegawai_gaji'] = $dt->nama_pegawai_gaji;
+            $data['jumlah_kehadiran_pegawai_gaji'] = $dt->jumlah_kehadiran_pegawai_gaji;
+            $data['rate_pegawai_gaji'] = $dt->rate_pegawai_gaji;
+            $data['tambahan_lainlain_pegawai_gaji'] = $dt->tambahan_lainlain_pegawai_gaji;
+            $data['keterangan_pegawai_gaji'] = $dt->keterangan_pegawai_gaji;
+            $data['total_pegawai_gaji'] = $dt->total_pegawai_gaji;
+            $data['jabatan_pegawai_gaji'] = $dt->jabatan_pegawai_gaji;
+            $data['nomor_rekening_pegawai_gaji'] = $dt->nomor_rekening_pegawai_gaji;
+            $data['nama_bank_pegawai_gaji'] = $dt->nama_bank_pegawai_gaji;
 
-    public function GajiPegawaiupdate(Request $brg, $id){
-        // $stok_awal = produk::where('id_produk',$id)
-        //                     ->value('stok_produk');
-        // $updt_stok = $brg->stok_produk; //Stock terbaru
-        // $stok_berubah = $updt_stok - $stok_awal;
-        // $updt_hBeli = $brg->harga_beli;
-        // $updt_hJual = $brg->harga_jual;
-        // $updt_nama_dist = $brg->nama_dist;
-        // $updt_nomor_dist = $brg->nomor_dist;
-        // if ($stok_awal == $updt_stok) {
-        //     produk::where('id_produk',$id)
-        //         ->update(['harga_beli_produk' => $updt_hBeli, 'harga_jual_produk' => $updt_hJual, 'nama_distributor' => $updt_nama_dist, 'nomor_hp_distributor' => $updt_nomor_dist]);
-        // }else{
-        //     $newMutasi = new mutasi;
-        //     $newMutasi->id_produk = $id;
-        //     $newMutasi->status_mutasi = 1;
-        //     $newMutasi->waktu_mutasi = Carbon::now();
-        //     $newMutasi->stok_awal = $stok_awal;
-        //     $newMutasi->stok_berubah = $stok_berubah;
-        //     $newMutasi->stok_akhir = $updt_stok;
-
-        //     $newMutasi->save();
-
-        //     produk::where('id_produk',$id)
-        //         ->update(['harga_beli_produk' => $updt_hBeli, 
-        //                     'harga_jual_produk' => $updt_hJual, 
-        //                     'nama_distributor' => $updt_nama_dist, 
-        //                     'nomor_hp_distributor' => $updt_nomor_dist, 
-        //                     'stok_produk' => $updt_stok]);
-        // }
-
-        DB::table('pegawai_gaji')->where('id_pegawai_gaji', $req->ID)->update([
-            'Nama' => $req->Nama,
-            'Potongan' => $req->Potongan,
-            'Deskripsi' => $req->Deskripsi
-        ]);
-        return redirect("/admin/Promo");
-
-        return redirect("/");
+            // $new->id_pegawai_gaji = $form_id_pegawai_gaji;
+            // $new->nomor_ktp_pegawai_gaji = $form_nomor_ktp_pegawai_gaji;
+            // $new->nama_pegawai_gaji = $form_nama_pegawai_gaji;
+            // $new->jumlah_kehadiran_pegawai_gaji=$form_jumlah_kehadiran_pegawai_gaji;
+            // $new->rate_pegawai_gaji=$form_rate_pegawai_gaji;
+            // $new->tambahan_lainlain_pegawai_gaji=$form_tambahan_lainlain_pegawai_gaji;
+            // $new->keterangan_pegawai_gaji=$form_keterangan_pegawai_gaji;
+            // $new->total_pegawai_gaji=$form_total_pegawai_gaji;
+            // $new->jabatan_pegawai_gaji = $form_jabatan_pegawai_gaji;
+            // $new->nomor_rekening_pegawai_gaji =$form_nomor_rekening_pegawai_gaji;
+            // $new->nama_bank_pegawai_gaji=$form_nama_bank_pegawai_gaji;
+            // $data['HARGA_BARANG'] = $dt->HARGA_BARANG;
+            // $data['lazada_sku'] = $dt->lazada_sku;
+        }
+        $data['id_pegawai_gaji'] = $no;
+        return view('editgajipegawai', $data);
+  
     }
+
+    public function GajiPegawaiupdate(Request $req){
+
+ 
+
+
+        $new = new GajiPegawai();
+        // $form_id_pegawai_gaji = $req->form_id_pegawai_gaji;
+        // $form_nomor_ktp_pegawai_gaji =$req->form_nomor_ktp_pegawai_gaji;
+        // $form_nama_pegawai_gaji =$req->form_nama_pegawai_gaji;
+        // $form_jumlah_kehadiran_pegawai_gaji =$req->form_jumlah_kehadiran_pegawai_gaji;
+        // $form_rate_pegawai_gaji =$req->form_rate_pegawai_gaji;
+        // $form_tambahan_lainlain_pegawai_gaji =$req->form_tambahan_lainlain_pegawai_gaji;
+        // $form_keterangan_pegawai_gaji =$req->form_keterangan_pegawai_gaji;
+        // $form_total_pegawai_gaji =$req->form_total_pegawai_gaji;
+        // $form_nomor_rekening_pegawai_gaji =$req->form_nomor_rekening_pegawai_gaji;
+        // $form_nama_bank_pegawai_gaji=$req->form_nama_bank_pegawai_gaji;
+        // $form_jabatan_pegawai_gaji=$req->form_jabatan_pegawai_gaji;
+    
+        // $new->updateGajipegawai($form_id_pegawai_gaji,
+        // $form_nomor_ktp_pegawai_gaji,
+        // $form_nama_pegawai_gaji,
+        // $form_jumlah_kehadiran_pegawai_gaji,
+        // $form_rate_pegawai_gaji,
+        // $form_tambahan_lainlain_pegawai_gaji,
+        // $form_keterangan_pegawai_gaji,
+        // $form_total_pegawai_gaji,
+        // $form_nomor_rekening_pegawai_gaji,
+        // $form_nama_bank_pegawai_gaji,
+        // $form_jabatan_pegawai_gaji
+        // );
+        $new->updateGajipegawai($req->form_id_pegawai_gaji,
+        $req->form_nomor_ktp_pegawai_gaji,
+        $req->form_nama_pegawai_gaji,
+        $req->form_jumlah_kehadiran_pegawai_gaji,
+        $req->form_rate_pegawai_gaji,
+        $req->form_tambahan_lainlain_pegawai_gaji,
+        $req->form_keterangan_pegawai_gaji,
+        $req->form_total_pegawai_gaji,
+        $req->form_nomor_rekening_pegawai_gaji,
+        $req->form_nama_bank_pegawai_gaji,
+        $req->form_jabatan_pegawai_gaji
+        );
+
+    return redirect('/');
+}
 }
