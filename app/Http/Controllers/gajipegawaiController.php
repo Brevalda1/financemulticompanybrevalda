@@ -48,7 +48,7 @@ class gajipegawaiController extends Controller
       
 
             $new->save();
-            return redirect("/");
+            return redirect("/gajipegawai");
           
         
 

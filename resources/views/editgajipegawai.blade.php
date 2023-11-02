@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label for="cc-payment" class="control-label mb-1">ID pegawai</label>
-                <input id="form_id_pegawai_gaji" name="form_id_pegawai_gaji" type="text" class="form-control" aria-required="true" aria-invalid="false" value="{{$id_pegawai_gaji}}" >
+                <input id="form_id_pegawai_gaji" name="form_id_pegawai_gaji" type="text" class="form-control" aria-required="true" aria-invalid="false" value="{{$id_pegawai_gaji}}" readonly>
             </div>
             <div class="form-group">
                 <label for="cc-payment" class="control-label mb-1">Nomor Ktp</label>

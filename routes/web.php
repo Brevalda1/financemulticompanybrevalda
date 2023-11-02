@@ -27,10 +27,11 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::get("/", [gajipegawaiController::class,"Gajipegawai"]);
-Route::get("/", [gajipegawaiController::class,"Gajipegawaiselect"]);
-Route::get("/login", [loginController::class,"Login"]);
+Route::get("/", [loginController::class,"Login"]);
+// Route::get("/", [gajipegawaiController::class,"Gajipegawaiselect"]);
+Route::get("/gajipegawai", [gajipegawaiController::class,"Gajipegawaiselect"]);
 Route::get("/users",[loginController::class,"Userss"]);
-Route::post("/login",[loginController::class,"Plogin"]);
+Route::post("/",[loginController::class,"Plogin"]);
 Route::get("/gajipegawaiform", [gajipegawaiController::class,"Gajipegawaiform"]);
 Route::get("/updategajipegawaiform/{no}", [gajipegawaiController::class,"Gajipegawaiedit"]);
 Route::post("/updategajipegawaiform/{no}", [gajipegawaiController::class,"GajiPegawaiupdate"]);

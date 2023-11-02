@@ -32,7 +32,7 @@ class loginController extends Controller
     {
         if($req->input('usernamee') == "admin" && $req->input('pass') == "admin"){
             session()->put('login',"admin");
-            return redirect("/");
+            return redirect("/gajipegawai");
             //echo($req->input("username"));
         }
         else {
@@ -50,7 +50,7 @@ class loginController extends Controller
                     
                     $users = $key->username;
                     session()->put('login',$users);
-                    return redirect('/');
+                    return redirect('/gajipegawai');
                 }
             }
 

@@ -14,7 +14,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="/"> <i class="menu-icon fa fa-dashboard"></i>Gaji Pegawai </a>
+                    <a href="/gajipegawai"> <i class="menu-icon fa fa-dashboard"></i>Gaji Pegawai </a>
                     {{-- <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Biaya operational proyek</a>
                     <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Biaya pribadi</a>
                     <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Biaya lain-lain</a> --}}
