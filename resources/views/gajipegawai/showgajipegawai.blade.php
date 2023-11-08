@@ -76,7 +76,12 @@
                           <td>{{$showgajipegawai->nama_bank_pegawai_gaji}}</td>
                 
                           <td><a href="/updategajipegawaiform/{{$showgajipegawai->id_pegawai_gaji}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
-                            <button class="btn btn-danger">Hapus</button></td>
+                            <a href="/deletegajipegawaiform/{{$showgajipegawai->id_pegawai_gaji}}" ><button class="btn btn-danger" data-target="#edit" data-toggle="modal">delete</button></a>
+                            
+
+                          
+                            
+    
 
 
 
@@ -91,5 +96,7 @@
 
 
                 </div>
+         
             </div>
+          
             @include("templatedashboard")

@@ -27,6 +27,7 @@ class GajiPegawai extends Model
         $new->jabatan_pegawai_gaji=$jabatan_pegawai_gaji;
         $new->nomor_rekening_pegawai_gaji=$nomor_rekening_pegawai_gaji;
         $new->nama_bank_pegawai_gaji=$nama_bank_pegawai_gaji;
+        $new->cek_status_gajipegawai=1;
         $new->save();
     }
 
@@ -53,6 +54,13 @@ class GajiPegawai extends Model
         $ins->jabatan_pegawai_gaji=$jabatan_pegawai_gaji;
         $ins->nomor_rekening_pegawai_gaji=$nomor_rekening_pegawai_gaji;
         $ins->nama_bank_pegawai_gaji=$nama_bank_pegawai_gaji;
+        $ins->save();
+    }
+
+    function deleteGajipegawai($id)
+    {
+        $ins = GajiPegawai::find($id);
+        $ins->cek_aktif_gajipegawai = 0;
         $ins->save();
     }
 

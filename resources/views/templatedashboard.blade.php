@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{asset('style//css/lib/datatable/dataTables.bootstrap.min.css')}}">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="{{asset('style/assets/scss/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -52,6 +53,8 @@
     <script src="{{asset('style/assets/js/lib/data-table/buttons.print.min.js')}}"></script>
     <script src="{{asset('style/assets/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('style/js/lib/data-table/datatables-init.js')}}"></script>
+   
+   
 
 
     <script type="text/javascript">
@@ -59,6 +62,10 @@
           $('#bootstrap-data-table-export').DataTable();
         } );
     </script>
+
+
+
+
 
 
 </body>

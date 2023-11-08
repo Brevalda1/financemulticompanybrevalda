@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Models\GajiPegawai;
+use Illuminate\Notifications\Slack\BlockKit\Blocks\ActionsBlock;
+use Illuminate\Notifications\Slack\BlockKit\Blocks\ContextBlock;
+use Illuminate\Notifications\Slack\BlockKit\Blocks\SectionBlock;
+use Illuminate\Notifications\Slack\BlockKit\Composites\ConfirmObject;
+use Illuminate\Notifications\Slack\SlackMessage;
 
 
 class gajipegawaiController extends Controller
@@ -14,7 +19,7 @@ class gajipegawaiController extends Controller
     //     return view("showgajipegawai");
     // }
     public function Gajipegawaiform(){
-        return view("formgajipegawai");
+        return view("gajipegawai.formgajipegawai");
     }
     public function Gajipegawaiinsert(Request $req){
         //echo($req->Fname);
@@ -60,11 +65,11 @@ class gajipegawaiController extends Controller
             $param['datas'] = Session::get('datas');
         }
         else{
-            $data = DB::select("select * from pegawai_gaji order by created_at desc");
+            $data = DB::select("select * from pegawai_gaji where cek_aktif_gajipegawai = 1 order by created_at desc");
             $param['datas'] = $data;
             // dd($param['datas']);
         }
-        return view("showgajipegawai",$param);
+        return view("gajipegawai.showgajipegawai",$param);
     }
     public function Gajipegawaiedit($no)
     {
@@ -99,7 +104,7 @@ class gajipegawaiController extends Controller
             // $data['lazada_sku'] = $dt->lazada_sku;
         }
         $data['id_pegawai_gaji'] = $no;
-        return view('editgajipegawai', $data);
+        return view('gajipegawai.editgajipegawai', $data);
   
     }
 
@@ -148,4 +153,17 @@ class gajipegawaiController extends Controller
 
     return redirect('/');
 }
+
+public function GajiPegawaidelete($no)
+    {
+        $gaji= new GajiPegawai();
+        $gaji->deleteGajipegawai($no);
+        return redirect('/gajipegawai');
+
+        // if(session()->get("jenis")=="ADMIN"){
+        //     return redirect('/admin/listbarang');
+        // } else{
+        //     return redirect('/owner/listbarang');
+        // }
+    }
 }
