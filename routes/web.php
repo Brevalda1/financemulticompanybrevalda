@@ -37,8 +37,10 @@ Route::get("/updategajipegawaiform/{no}", [gajipegawaiController::class,"Gajipeg
 Route::get("/deletegajipegawaiform/{no}", [gajipegawaiController::class,"Gajipegawaidelete"]);
 Route::post("/updategajipegawaiform/{no}", [gajipegawaiController::class,"GajiPegawaiupdate"]);
 Route::post("/gajipegawaiform", [gajipegawaiController::class,"Gajipegawaiinsert"]);
-Route::get("/pencatatanrekening", [pencatatanrekeningController::class,"Pencatatanrekening"]);
+
+Route::get("/pencatatanrekening", [pencatatanrekeningController::class,"Pencatatanrekeningselect"]);
 Route::get("/pencatatanrekeningform", [pencatatanrekeningController::class,"Pencatatanrekeningform"]);
+
 Route::get("/pencatatanmasadepan", [pencatatanmasadepanController::class,"Pencatatanmasadepan"]);
 Route::get("/pencatatanmasadepanform", [pencatatanmasadepanController::class,"Pencatatanmasadepanform"]);
 Route::get("/biayaoperationalproyek", [biayaoperationalproyekController::class,"Biayaoperationalproyek"]);
