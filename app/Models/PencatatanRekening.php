@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class PencatatanRekening extends Model
 {
     use HasFactory;
-    public $table   = "pencatanan_rekening_partner";
-    public $primaryKey = "kode_pencatanan_rekening_partner";
+    public $table   = "pencatatan_rekening_partner";
+    public $primaryKey = "kode_pencatatan_rekening_partner";
     public $incrementing = false;
     public $timestamps = true;
 
@@ -53,10 +53,10 @@ class PencatatanRekening extends Model
         $new->save();
     }
 
-    function deleteGajipegawai($id)
+    function deletePencatatanrekening($id)
     {
         $ins = PencatatanRekening::find($id);
-        $ins->cek_status_pencatatanrekening=1;
+        $ins->cek_status_pencatatanrekening=0;
         $ins->save();
     }
 }

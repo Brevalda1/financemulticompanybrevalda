@@ -18,39 +18,31 @@ class pencatatanrekeningController extends Controller
     }
 
 
-    public function Gajipegawaiinsert(Request $req){
+    public function Pencatatanrekeninginsert(Request $req){
         //echo($req->Fname);
-            $kop='sss';
-            $vop=2131;
-            $form_id_pegawai_gaji = $req->form_id_pegawai_gaji;
-            $form_nomor_ktp_pegawai_gaji =$req->form_nomor_ktp_pegawai_gaji;
-            $form_nama_pegawai_gaji =$req->form_nama_pegawai_gaji;
-            $form_jumlah_kehadiran_pegawai_gaji =$req->form_jumlah_kehadiran_pegawai_gaji;
-            $form_rate_pegawai_gaji =$req->form_rate_pegawai_gaji;
-            $form_tambahan_lainlain_pegawai_gaji =$req->form_tambahan_lainlain_pegawai_gaji;
-            $form_keterangan_pegawai_gaji =$req->form_keterangan_pegawai_gaji;
-            $form_total_pegawai_gaji =$req->form_total_pegawai_gaji;
-            $form_nomor_rekening_pegawai_gaji =$req->form_nomor_rekening_pegawai_gaji;
-            $form_nama_bank_pegawai_gaji=$req->form_nama_bank_pegawai_gaji;
-            $form_jabatan_pegawai_gaji=$req->form_jabatan_pegawai_gaji;
-            
-            $new = new GajiPegawai();
-            // $new->add($form_id_pegawai_gaji,$kop,$kop,$vop,$vop,$vop,$kop,$vop,$kop,$kop,$kop);
-            $new->id_pegawai_gaji = $form_id_pegawai_gaji;
-            $new->nomor_ktp_pegawai_gaji = $form_nomor_ktp_pegawai_gaji;
-            $new->nama_pegawai_gaji = $form_nama_pegawai_gaji;
-            $new->jumlah_kehadiran_pegawai_gaji=$form_jumlah_kehadiran_pegawai_gaji;
-            $new->rate_pegawai_gaji=$form_rate_pegawai_gaji;
-            $new->tambahan_lainlain_pegawai_gaji=$form_tambahan_lainlain_pegawai_gaji;
-            $new->keterangan_pegawai_gaji=$form_keterangan_pegawai_gaji;
-            $new->total_pegawai_gaji=$form_total_pegawai_gaji;
-            $new->jabatan_pegawai_gaji = $form_jabatan_pegawai_gaji;
-            $new->nomor_rekening_pegawai_gaji =$form_nomor_rekening_pegawai_gaji;
-            $new->nama_bank_pegawai_gaji=$form_nama_bank_pegawai_gaji;
+            $form_kode_pencatatan_rekening_partner = $req->form_kode_pencatanan_rekening_partner;
+            $form_nama_perusahaan_partner =$req->form_nama_perusahaan_partner;
+            $form_nomor_rekening_perusahaan_partner =$req->form_nomor_rekening_perusahaan_partner;
+            $form_kode_transfer_rekening_perusahaan_partner =$req->form_kode_transfer_rekening_perusahaan_partner;
+            $form_nama_bank_perusahaan_partner =$req->form_nama_bank_perusahaan_partner;
+            $form_keterangan_pencatatan_rekening_partner =$req->form_keterangan_pencatatan_rekening_partner;
+         
+
+
+           
+            $new = new PencatatanRekening();
+         
+            $new->kode_pencatatan_rekening_partner = $form_kode_pencatatan_rekening_partner;
+            $new->nama_perusahaan_partner = $form_nama_perusahaan_partner;
+            $new->nomor_rekening_perusahaan_partner = $form_nomor_rekening_perusahaan_partner;
+            $new->kode_transfer_rekening_perusahaan_partner=$form_kode_transfer_rekening_perusahaan_partner;
+            $new->nama_bank_perusahaan_partner=$form_nama_bank_perusahaan_partner;
+            $new->keterangan_pencatatan_rekening_partner=$form_keterangan_pencatatan_rekening_partner;
+            $new->cek_status_pencatatanrekening =1;
       
 
             $new->save();
-            return redirect("/gajipegawai");
+            return redirect("/pencatatanrekening");
           
         
 
@@ -151,11 +143,11 @@ class pencatatanrekeningController extends Controller
     return redirect('/');
 }
 
-public function GajiPegawaidelete($no)
+public function Pencatatanrekeningdelete($no)
     {
-        $gaji= new GajiPegawai();
-        $gaji->deleteGajipegawai($no);
-        return redirect('/gajipegawai');
+        $gaji= new PencatatanRekening();
+        $gaji->deletePencatatanrekening($no);
+        return redirect('/pencatatanrekening');
 
         // if(session()->get("jenis")=="ADMIN"){
         //     return redirect('/admin/listbarang');

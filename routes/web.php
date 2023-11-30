@@ -40,6 +40,8 @@ Route::post("/gajipegawaiform", [gajipegawaiController::class,"Gajipegawaiinsert
 
 Route::get("/pencatatanrekening", [pencatatanrekeningController::class,"Pencatatanrekeningselect"]);
 Route::get("/pencatatanrekeningform", [pencatatanrekeningController::class,"Pencatatanrekeningform"]);
+Route::post("/pencatatanrekeningform", [pencatatanrekeningController::class,"Pencatatanrekeninginsert"]);
+Route::get("/deletepencatatanrekeningform/{no}", [pencatatanrekeningController::class,"Pencatatanrekeningdelete"]);
 
 Route::get("/pencatatanmasadepan", [pencatatanmasadepanController::class,"Pencatatanmasadepan"]);
 Route::get("/pencatatanmasadepanform", [pencatatanmasadepanController::class,"Pencatatanmasadepanform"]);

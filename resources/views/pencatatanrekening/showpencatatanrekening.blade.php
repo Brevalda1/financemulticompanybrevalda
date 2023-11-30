@@ -57,17 +57,43 @@
                       @endphp
                       @foreach ( $data as $showpencatatanrekening)
                       <tr>
-                          <th scope="row">{{$showpencatatanrekening->kode_pencatanan_rekening_partner}}</th>
+                          <th scope="row">{{$showpencatatanrekening->kode_pencatatan_rekening_partner}}</th>
                           <td>{{$showpencatatanrekening->nama_perusahaan_partner}}</td>
                           <td>{{$showpencatatanrekening->nomor_rekening_perusahaan_partner}}</td>
                           <td>{{$showpencatatanrekening->kode_transfer_rekening_perusahaan_partner}}</td>
                           <td>{{$showpencatatanrekening->nama_bank_perusahaan_partner}}</td>
                           <td>{{$showpencatatanrekening->keterangan_pencatatan_rekening_partner}}</td>
 
-                          <td><a href="/updategajipegawaiform/{{$showpencatatanrekening->kode_pencatanan_rekening_partner}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
-                            <a href="/deletegajipegawaiform/{{$showpencatatanrekening->kode_pencatanan_rekening_partner}}" ><button class="btn btn-danger" data-target="#edit" data-toggle="modal">delete</button></a>
-                            
-
+                          <td><a href="/updategajipegawaiform/{{$showpencatatanrekening->kode_pencatatan_rekening_partner}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
+                            <a href="/deletepencatatanrekeningform/{{$showpencatatanrekening->kode_pencatatan_rekening_partner}}" ><button class="btn btn-danger" data-target="#edit" data-toggle="modal">delete</button></a>
+                            <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#smallmodal">
+                                Small
+                            </button>
+                            <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                                <div css="modal-dialog modal-sm" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="smallmodalLabel">Small Modal</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span ariala-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                                There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
+                                                and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus
+                                                Dolichohippus. The latter resembles an ass, to which it is closely related, while the former two are more
+                                                horse-like. All three belong to the genus Equus, along with other living equids.
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-primary">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
                           
                             
     
