@@ -12,4 +12,9 @@ class biayalainlainController extends Controller
     public function Biayalainlainform(){
         return view("formbiayalainlain");
     }
+    public function Test(){
+        
+    }
+    
+
 }
