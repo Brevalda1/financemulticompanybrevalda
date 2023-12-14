@@ -26,10 +26,6 @@ class pencatatanrekeningController extends Controller
             $form_kode_transfer_rekening_perusahaan_partner =$req->form_kode_transfer_rekening_perusahaan_partner;
             $form_nama_bank_perusahaan_partner =$req->form_nama_bank_perusahaan_partner;
             $form_keterangan_pencatatan_rekening_partner =$req->form_keterangan_pencatatan_rekening_partner;
-         
-
-
-           
             $new = new PencatatanRekening();
          
             $new->kode_pencatatan_rekening_partner = $form_kode_pencatatan_rekening_partner;
@@ -60,87 +56,41 @@ class pencatatanrekeningController extends Controller
         }
         return view("pencatatanrekening.showpencatatanrekening",$param);
     }
-    public function Gajipegawaiedit($no)
+    public function PencatatanRekeningedit($no)
     {
-        $new = new GajiPegawai();
+        $new = new PencatatanRekening();
         // $barang = new Barang();
-        $arrBarang = $new->getGajipegawaiById($no);
+        $arrBarang = $new->getPencatatanRekeningById($no);
         foreach ($arrBarang as $dt) {
-            $data['id_pegawai_gaji'] = $dt->id_pegawai_gaji;
-            $data['nomor_ktp_pegawai_gaji'] = $dt->nomor_ktp_pegawai_gaji;
-            $data['nama_pegawai_gaji'] = $dt->nama_pegawai_gaji;
-            $data['jumlah_kehadiran_pegawai_gaji'] = $dt->jumlah_kehadiran_pegawai_gaji;
-            $data['rate_pegawai_gaji'] = $dt->rate_pegawai_gaji;
-            $data['tambahan_lainlain_pegawai_gaji'] = $dt->tambahan_lainlain_pegawai_gaji;
-            $data['keterangan_pegawai_gaji'] = $dt->keterangan_pegawai_gaji;
-            $data['total_pegawai_gaji'] = $dt->total_pegawai_gaji;
-            $data['jabatan_pegawai_gaji'] = $dt->jabatan_pegawai_gaji;
-            $data['nomor_rekening_pegawai_gaji'] = $dt->nomor_rekening_pegawai_gaji;
-            $data['nama_bank_pegawai_gaji'] = $dt->nama_bank_pegawai_gaji;
-
-            // $new->id_pegawai_gaji = $form_id_pegawai_gaji;
-            // $new->nomor_ktp_pegawai_gaji = $form_nomor_ktp_pegawai_gaji;
-            // $new->nama_pegawai_gaji = $form_nama_pegawai_gaji;
-            // $new->jumlah_kehadiran_pegawai_gaji=$form_jumlah_kehadiran_pegawai_gaji;
-            // $new->rate_pegawai_gaji=$form_rate_pegawai_gaji;
-            // $new->tambahan_lainlain_pegawai_gaji=$form_tambahan_lainlain_pegawai_gaji;
-            // $new->keterangan_pegawai_gaji=$form_keterangan_pegawai_gaji;
-            // $new->total_pegawai_gaji=$form_total_pegawai_gaji;
-            // $new->jabatan_pegawai_gaji = $form_jabatan_pegawai_gaji;
-            // $new->nomor_rekening_pegawai_gaji =$form_nomor_rekening_pegawai_gaji;
-            // $new->nama_bank_pegawai_gaji=$form_nama_bank_pegawai_gaji;
-            // $data['HARGA_BARANG'] = $dt->HARGA_BARANG;
-            // $data['lazada_sku'] = $dt->lazada_sku;
+            $data['kode_pencatatan_rekening_partner'] = $dt->kode_pencatatan_rekening_partner;
+            $data['nama_perusahaan_partner'] = $dt->nama_perusahaan_partner;
+            $data['nomor_rekening_perusahaan_partner'] = $dt->nomor_rekening_perusahaan_partner;
+            $data['kode_transfer_rekening_perusahaan_partner'] = $dt->kode_transfer_rekening_perusahaan_partner;
+            $data['nama_bank_perusahaan_partner'] = $dt->nama_bank_perusahaan_partner;
+            $data['keterangan_pencatatan_rekening_partner'] = $dt->keterangan_pencatatan_rekening_partner;
         }
-        $data['id_pegawai_gaji'] = $no;
-        return view('gajipegawai.editgajipegawai', $data);
+        $data['kode_pencatatan_rekening_partner'] = $no;
+        return view('pencatatanrekening.editpencatatanrekening', $data);
   
     }
 
-    public function GajiPegawaiupdate(Request $req){
+    public function PencatatanRekeningupdate(Request $req){
 
  
 
 
-        $new = new GajiPegawai();
-        // $form_id_pegawai_gaji = $req->form_id_pegawai_gaji;
-        // $form_nomor_ktp_pegawai_gaji =$req->form_nomor_ktp_pegawai_gaji;
-        // $form_nama_pegawai_gaji =$req->form_nama_pegawai_gaji;
-        // $form_jumlah_kehadiran_pegawai_gaji =$req->form_jumlah_kehadiran_pegawai_gaji;
-        // $form_rate_pegawai_gaji =$req->form_rate_pegawai_gaji;
-        // $form_tambahan_lainlain_pegawai_gaji =$req->form_tambahan_lainlain_pegawai_gaji;
-        // $form_keterangan_pegawai_gaji =$req->form_keterangan_pegawai_gaji;
-        // $form_total_pegawai_gaji =$req->form_total_pegawai_gaji;
-        // $form_nomor_rekening_pegawai_gaji =$req->form_nomor_rekening_pegawai_gaji;
-        // $form_nama_bank_pegawai_gaji=$req->form_nama_bank_pegawai_gaji;
-        // $form_jabatan_pegawai_gaji=$req->form_jabatan_pegawai_gaji;
-    
-        // $new->updateGajipegawai($form_id_pegawai_gaji,
-        // $form_nomor_ktp_pegawai_gaji,
-        // $form_nama_pegawai_gaji,
-        // $form_jumlah_kehadiran_pegawai_gaji,
-        // $form_rate_pegawai_gaji,
-        // $form_tambahan_lainlain_pegawai_gaji,
-        // $form_keterangan_pegawai_gaji,
-        // $form_total_pegawai_gaji,
-        // $form_nomor_rekening_pegawai_gaji,
-        // $form_nama_bank_pegawai_gaji,
-        // $form_jabatan_pegawai_gaji
-        // );
-        $new->updateGajipegawai($req->form_id_pegawai_gaji,
-        $req->form_nomor_ktp_pegawai_gaji,
-        $req->form_nama_pegawai_gaji,
-        $req->form_jumlah_kehadiran_pegawai_gaji,
-        $req->form_rate_pegawai_gaji,
-        $req->form_tambahan_lainlain_pegawai_gaji,
-        $req->form_keterangan_pegawai_gaji,
-        $req->form_total_pegawai_gaji,
-        $req->form_nomor_rekening_pegawai_gaji,
-        $req->form_nama_bank_pegawai_gaji,
-        $req->form_jabatan_pegawai_gaji
+        $new = new PencatatanRekening();
+        
+        $new->updatePencatatanRekening($req->form_kode_pencatanan_rekening_partner,
+        $req->form_nama_perusahaan_partner,
+        $req->form_nomor_rekening_perusahaan_partner,
+        $req->form_kode_transfer_rekening_perusahaan_partner,
+        $req->form_nama_bank_perusahaan_partner,
+        $req->form_keterangan_pencatatan_rekening_partner
         );
 
-    return redirect('/');
+
+    return redirect('/pencatatanrekening');
 }
 
 public function Pencatatanrekeningdelete($no)

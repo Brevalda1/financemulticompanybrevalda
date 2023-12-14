@@ -114,30 +114,6 @@ class gajipegawaiController extends Controller
 
 
         $new = new GajiPegawai();
-        // $form_id_pegawai_gaji = $req->form_id_pegawai_gaji;
-        // $form_nomor_ktp_pegawai_gaji =$req->form_nomor_ktp_pegawai_gaji;
-        // $form_nama_pegawai_gaji =$req->form_nama_pegawai_gaji;
-        // $form_jumlah_kehadiran_pegawai_gaji =$req->form_jumlah_kehadiran_pegawai_gaji;
-        // $form_rate_pegawai_gaji =$req->form_rate_pegawai_gaji;
-        // $form_tambahan_lainlain_pegawai_gaji =$req->form_tambahan_lainlain_pegawai_gaji;
-        // $form_keterangan_pegawai_gaji =$req->form_keterangan_pegawai_gaji;
-        // $form_total_pegawai_gaji =$req->form_total_pegawai_gaji;
-        // $form_nomor_rekening_pegawai_gaji =$req->form_nomor_rekening_pegawai_gaji;
-        // $form_nama_bank_pegawai_gaji=$req->form_nama_bank_pegawai_gaji;
-        // $form_jabatan_pegawai_gaji=$req->form_jabatan_pegawai_gaji;
-    
-        // $new->updateGajipegawai($form_id_pegawai_gaji,
-        // $form_nomor_ktp_pegawai_gaji,
-        // $form_nama_pegawai_gaji,
-        // $form_jumlah_kehadiran_pegawai_gaji,
-        // $form_rate_pegawai_gaji,
-        // $form_tambahan_lainlain_pegawai_gaji,
-        // $form_keterangan_pegawai_gaji,
-        // $form_total_pegawai_gaji,
-        // $form_nomor_rekening_pegawai_gaji,
-        // $form_nama_bank_pegawai_gaji,
-        // $form_jabatan_pegawai_gaji
-        // );
         $new->updateGajipegawai($req->form_id_pegawai_gaji,
         $req->form_nomor_ktp_pegawai_gaji,
         $req->form_nama_pegawai_gaji,
@@ -151,7 +127,7 @@ class gajipegawaiController extends Controller
         $req->form_jabatan_pegawai_gaji
         );
 
-    return redirect('/');
+    return redirect('/gajipegawai');
 }
 
 public function GajiPegawaidelete($no)

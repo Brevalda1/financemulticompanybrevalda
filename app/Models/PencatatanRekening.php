@@ -28,14 +28,14 @@ class PencatatanRekening extends Model
         $new->save();
     }
 
-    function getPencatatanRekening($id)
+    function getPencatatanRekeningById($id)
     {
-        $dt =  PencatatanRekening::where('kode_pencatanan_rekening_partner', '=', $id)
+        $dt =  PencatatanRekening::where('kode_pencatatan_rekening_partner', '=', $id)
             ->get();
         return $dt;
     }
 
-    function updateGajipegawai($kode_pencatanan_rekening_partner,$nama_perusahaan_partner,
+    function updatePencatatanRekening($kode_pencatanan_rekening_partner,$nama_perusahaan_partner,
     $nomor_rekening_perusahaan_partner,$kode_transfer_rekening_perusahaan_partner,
     $nama_bank_perusahaan_partner,$keterangan_pencatatan_rekening_partner)
     
@@ -43,7 +43,7 @@ class PencatatanRekening extends Model
         // dd($nomor_ktp_pegawai_gaji);
         $new = PencatatanRekening::find($kode_pencatanan_rekening_partner);
         // $ins->id_pegawai_gaji = $id_pegawai_gaji;
-        $new->kode_pencatanan_rekening_partner = $kode_pencatanan_rekening_partner;
+  
         $new->nama_perusahaan_partner = $nama_perusahaan_partner;
         $new->nomor_rekening_perusahaan_partner = $nomor_rekening_perusahaan_partner;
         $new->kode_transfer_rekening_perusahaan_partner = $kode_transfer_rekening_perusahaan_partner;
@@ -52,6 +52,7 @@ class PencatatanRekening extends Model
         $new->cek_status_pencatatanrekening=1;
         $new->save();
     }
+    
 
     function deletePencatatanrekening($id)
     {
