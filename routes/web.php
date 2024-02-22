@@ -45,8 +45,13 @@ Route::get("/deletepencatatanrekeningform/{no}", [pencatatanrekeningController::
 Route::get("/updatepencatatanrekeningform/{no}", [pencatatanrekeningController::class,"PencatatanRekeningedit"]);
 Route::post("/updatepencatatanrekeningform/{no}", [pencatatanrekeningController::class,"Pencatatanrekeningupdate"]);
 
-Route::get("/pencatatanmasadepan", [pencatatanmasadepanController::class,"Pencatatanmasadepan"]);
+Route::get("/pencatatanmasadepan", [pencatatanmasadepanController::class,"Pencatatanmasadepanselect"]);
 Route::get("/pencatatanmasadepanform", [pencatatanmasadepanController::class,"Pencatatanmasadepanform"]);
+Route::post("/pencatatanmasadepanform", [pencatatanmasadepanController::class,"Pencatatanmasadepaninsert"]);
+Route::get("/updatepencatatanmasadepanform/{no}", [pencatatanmasadepanController::class,"Pencatatanmasadepanedit"]);
+Route::post("/updatepencatatanmasadepanform/{no}", [pencatatanmasadepanController::class,"Pencatatanmasadepanupdate"]);
+Route::get("/deletepencatatanmasadepanform/{no}", [pencatatanmasadepanController::class,"Pencatatanmasadepandelete"]);
+
 Route::get("/biayaoperationalproyek", [biayaoperationalproyekController::class,"Biayaoperationalproyek"]);
 Route::get("/biayaoperationalproyekform", [biayaoperationalproyekController::class,"Biayaoperationalproyekform"]);
 Route::get("/biayaoperationalnonbudgeting", [biayaoperationalnonbudgetingController::class,"Biayaoperationalnonbudgeting"]);

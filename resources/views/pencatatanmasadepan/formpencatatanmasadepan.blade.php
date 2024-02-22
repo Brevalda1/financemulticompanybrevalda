@@ -11,23 +11,27 @@
         <hr>
         <form action="" method="post" novalidate="novalidate">
             <div class="form-group text-center">
-           
+                @csrf
             </div>
             <div class="form-group">
-                <label for="cc-payment" class="control-label mb-1">nama proyek</label>
-                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" >
+                <label for="cc-payment" class="control-label mb-1">kode pencatatan</label>
+                <input id="cc-pament" name="form_kode_pencatatan_biaya_masa_depan" type="text" class="form-control" aria-required="true" aria-invalid="false" >
             </div>
             <div class="form-group">
-                <label for="cc-payment" class="control-label mb-1">bentuk barang</label>
-                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" >
+                <label for="cc-payment" class="control-label mb-1">Nama Pencatatan</label>
+                <input id="cc-pament" name="form_nama_pencatatan_biaya_masa_depan" type="text" class="form-control" aria-required="true" aria-invalid="false" >
             </div>
             <div class="form-group">
-                <label for="cc-payment" class="control-label mb-1">jumlah</label>
-                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" >
+                <label for="cc-payment" class="control-label mb-1">Jumlah pencatatan</label>
+                <input id="cc-pament" name="form_jumlah_pencatatan_biaya_masa_depan" type="text" class="form-control" aria-required="true" aria-invalid="false" >
             </div>
             <div class="form-group">
                 <label for="cc-payment" class="control-label mb-1">harga</label>
-                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" >
+                <input id="cc-pament" name="form_harga_pencatatan_biaya_masa_depan" type="text" class="form-control" aria-required="true" aria-invalid="false" >
+            </div>
+            <div class="form-group">
+                <label for="cc-payment" class="control-label mb-1">keterangan</label>
+                <input id="cc-pament" name="form_keterangan_pencatatan_biaya_masa_depan" type="text" class="form-control" aria-required="true" aria-invalid="false" >
             </div>
             
             <div class="row">
