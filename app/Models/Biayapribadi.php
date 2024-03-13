@@ -38,18 +38,20 @@ class Biayapribadi extends Model
 
     function updateBiayaPribadi($kode_biaya_pribadi,$nama_biaya_pribadi,
     $satuan_biaya_pribadi,$harga_biaya_pribadi,
-    $tanggal_biaya_pribadi,$jumlah_biaya_pribadi,$bukti_biaya_pribadi)
+    $tanggal_biaya_pribadi,$jumlah_biaya_pribadi,$bukti_biaya_pribadi,$namagambar)
     
     {
         // dd($nomor_ktp_pegawai_gaji);
         $new = BiayaPribadi::find($kode_biaya_pribadi);
-
+     
         $new->nama_biaya_pribadi = $nama_biaya_pribadi;
         $new->satuan_biaya_pribadi = $satuan_biaya_pribadi;
         $new->harga_biaya_pribadi = $harga_biaya_pribadi;
         $new->tanggal_biaya_pribadi=$tanggal_biaya_pribadi;
         $new->jumlah_biaya_pribadi=$jumlah_biaya_pribadi;
         $new->bukti_biaya_pribadi=$bukti_biaya_pribadi;
+        $new->bukti_biaya_pribadi=$namagambar;
+        $bukti_biaya_pribadi->move("BiayaPribadiBukti",$namagambar);
 
         $new->save();
     }

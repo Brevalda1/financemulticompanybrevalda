@@ -9,7 +9,7 @@
             <h3 class="text-center">Biaya operational proyek</h3>
         </div>
         <hr>
-        <form action="/updatebiayapribadiform/{no}" method="post" novalidate="novalidate">
+        <form action="/updatebiayapribadiform/{no}" method="post" novalidate="novalidate" enctype="multipart/form-data">
             @csrf
             <div class="form-group text-center">
             </div>

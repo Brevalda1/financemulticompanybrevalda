@@ -25,6 +25,7 @@ class biayapribadiController extends Controller
             $form_tanggal_biaya_pribadi =$req->form_tanggal_biaya_pribadi;
             $form_jumlah_biaya_pribadi =$req->form_jumlah_biaya_pribadi;
             $form_bukti_biaya_pribadi =$req->form_bukti_biaya_pribadi;
+            $namagambar = $form_bukti_biaya_pribadi->getClientOriginalName();
 
             $new = new Biayapribadi();
             $new->kode_biaya_pribadi = $form_kode_biaya_pribadi;
@@ -33,8 +34,11 @@ class biayapribadiController extends Controller
             $new->harga_biaya_pribadi = $form_harga_biaya_pribadi;
             $new->tanggal_biaya_pribadi=$form_tanggal_biaya_pribadi;
             $new->jumlah_biaya_pribadi=$form_jumlah_biaya_pribadi;
-            $new->bukti_biaya_pribadi=$form_bukti_biaya_pribadi;
+            $new->bukti_biaya_pribadi=$namagambar;
+            $form_bukti_biaya_pribadi->move("BiayaPribadiBukti",$namagambar);
             $new->cek_status_biaya_pribadi=1;
+
+        
       
             $new->save();
             return redirect("/biayapribadi");
@@ -77,7 +81,8 @@ class biayapribadiController extends Controller
 
     public function Biayapribadiupdate(Request $req){
 
-
+        $form_bukti_biaya_pribadi =$req->form_bukti_biaya_pribadi;
+        $namagambar = $form_bukti_biaya_pribadi->getClientOriginalName();
 
         $new = new Biayapribadi();
         $new->updateBiayaPribadi($req->form_kode_biaya_pribadi,
@@ -87,6 +92,7 @@ class biayapribadiController extends Controller
         $req->form_tanggal_biaya_pribadi,
         $req->form_jumlah_biaya_pribadi,
         $req->form_bukti_biaya_pribadi,
+        $namagambar
         );
 
     return redirect('/biayapribadi');

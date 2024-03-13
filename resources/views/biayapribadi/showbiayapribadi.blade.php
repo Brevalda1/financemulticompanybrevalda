@@ -65,7 +65,9 @@
                         <td>{{$showbiayapribadi->tanggal_biaya_pribadi}}</td>
                         <td>{{$showbiayapribadi->jumlah_biaya_pribadi}}</td>
                         <td>
-                          <img src="{{asset($showbiayapribadi->bukti_biaya_pribadi)}}" width='50' height='50' /></td>
+                          <img src="{{asset('BiayaPribadiBukti').'/'.$showbiayapribadi->bukti_biaya_pribadi}}" width='50' height='50'></td>
+
+                          
               
                         <td><a href="/updatebiayapribadiform/{{$showbiayapribadi->kode_biaya_pribadi}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
                           <a href="/deletebiayapribadiform/{{$showbiayapribadi->kode_biaya_pribadi}}" ><button class="btn btn-danger" data-target="#edit" data-toggle="modal">delete</button></a>
