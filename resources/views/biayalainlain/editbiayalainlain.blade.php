@@ -9,7 +9,7 @@
             <h3 class="text-center">Biaya Lain Lain</h3>
         </div>
         <hr>
-        <form action="" method="post" novalidate="novalidate">
+        <form action="" method="post" novalidate="novalidate"  enctype="multipart/form-data">
             <div class="form-group text-center">
            @csrf
             </div>

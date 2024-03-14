@@ -26,6 +26,8 @@ class biayalainlainController extends Controller
         $form_tanggal_biaya_lainlain =$req->form_tanggal_biaya_lainlain;
         $form_jumlah_biaya_lainlain =$req->form_jumlah_biaya_lainlain;
         $form_bukti_biaya_lainlain =$req->form_bukti_biaya_lainlain;
+        $namagambar = $form_bukti_biaya_lainlain->getClientOriginalName();
+     
 
         $new = new BiayaLainLain();
         $new->kode_biaya_lainlain = $form_kode_biaya_lainlain;
@@ -34,7 +36,9 @@ class biayalainlainController extends Controller
         $new->harga_biaya_lainlain = $form_harga_biaya_lainlain;
         $new->tanggal_biaya_lainlain=$form_tanggal_biaya_lainlain;
         $new->jumlah_biaya_lainlain=$form_jumlah_biaya_lainlain;
-        $new->bukti_biaya_lainlain=$form_bukti_biaya_lainlain;
+        // $new->bukti_biaya_lainlain=$form_bukti_biaya_lainlain;
+        $new->bukti_biaya_lainlain=$namagambar;
+        $form_bukti_biaya_lainlain->move("BiayaLainLainBukti",$namagambar);
         $new->cek_status_biaya_lainlain=1;
   
         $new->save();
@@ -79,6 +83,9 @@ public function Biayalainlainedit($no)
 public function Biayalainlainupdate(Request $req){
 
 
+    $form_bukti_biaya_lainlain =$req->form_bukti_biaya_lainlain;
+    $namagambar = $form_bukti_biaya_lainlain->getClientOriginalName();
+
 
     $new = new BiayaLainLain();
     $new->updateBiayaLainLain($req->form_kode_biaya_lainlain,
@@ -88,6 +95,7 @@ public function Biayalainlainupdate(Request $req){
     $req->form_tanggal_biaya_lainlain,
     $req->form_jumlah_biaya_lainlain,
     $req->form_bukti_biaya_lainlain,
+    $namagambar
     );
 
 return redirect('/biayalainlain');

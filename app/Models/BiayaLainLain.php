@@ -38,7 +38,7 @@ class BiayaLainLain extends Model
 
     function updateBiayaLainLain($kode_biaya_lainlain,$nama_biaya_lainlain,
     $satuan_biaya_lainlain,$harga_biaya_lainlain,
-    $tanggal_biaya_lainlain,$jumlah_biaya_lainlain,$bukti_biaya_lainlain)
+    $tanggal_biaya_lainlain,$jumlah_biaya_lainlain,$bukti_biaya_lainlain,$namagambar)
     
     {
         // dd($nomor_ktp_pegawai_gaji);
@@ -50,7 +50,8 @@ class BiayaLainLain extends Model
         $new->tanggal_biaya_lainlain=$tanggal_biaya_lainlain;
         $new->jumlah_biaya_lainlain=$jumlah_biaya_lainlain;
         $new->bukti_biaya_lainlain=$bukti_biaya_lainlain;
-
+        $new->bukti_biaya_lainlain=$namagambar;
+        $bukti_biaya_lainlain->move("BiayaLainLainBukti",$namagambar);
         $new->save();
     }
     

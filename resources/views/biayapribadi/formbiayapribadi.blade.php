@@ -6,7 +6,7 @@
  <div id="pay-invoice">
     <div class="card-body">
         <div class="card-title">
-            <h3 class="text-center">Biaya </h3>
+            <h3 class="text-center">Biaya Pribadi</h3>
         </div>
         <hr>
         <form action="" method="post" novalidate="novalidate" enctype="multipart/form-data">

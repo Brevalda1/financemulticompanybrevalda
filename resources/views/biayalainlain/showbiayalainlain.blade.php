@@ -65,8 +65,7 @@
                         <td>{{$showbiayalainlain->tanggal_biaya_lainlain}}</td>
                         <td>{{$showbiayalainlain->jumlah_biaya_lainlain}}</td>
                         <td>
-                          <img src="{{asset($showbiayalainlain->bukti_biaya_lainlain)}}" width='50' height='50' /></td>
-              
+                          <img src="{{asset('BiayaLainLainBukti').'/'.$showbiayalainlain->bukti_biaya_lainlain}}" width='50' height='50'></td>
                         <td><a href="/updatebiayalainlainform/{{$showbiayalainlain->kode_biaya_lainlain}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
                           <a href="/deletebiayalainlainform/{{$showbiayalainlain->kode_biaya_lainlain}}" ><button class="btn btn-danger" data-target="#edit" data-toggle="modal">delete</button></a>
                         </td>
