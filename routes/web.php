@@ -7,6 +7,7 @@ use App\Http\Controllers\biayaoperationalnonbudgetingController;
 use App\Http\Controllers\biayapribadiController;
 use App\Http\Controllers\biayalainlainController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\detailbiayaoperationalproyekController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -80,3 +81,10 @@ Route::post("/biayalainlainform", [biayalainlainController::class,"Biayalainlain
 Route::get("/updatebiayalainlainform/{no}", [biayalainlainController::class,"Biayalainlainedit"]);
 Route::post("/updatebiayalainlainform/{no}", [biayalainlainController::class,"Biayalainlainupdate"]);
 Route::get("/deletebiayalainlainform/{no}", [biayalainlainController::class,"Biayalainlaindelete"]);
+
+Route::get("/detailbiayaoperationalproyeka", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekselect"]);
+Route::get("/detailbiayaoperationalproyekform", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekform"]);
+Route::post("/detailbiayaoperationalproyekform", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekinsert"]);
+Route::get("/updatedetailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekedit"]);
+Route::post("/updatedetailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekupdate"]);
+Route::get("/deletedetailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekdelete"]);

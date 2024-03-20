@@ -105,4 +105,8 @@ public function BiayaOperationalProyekdelete($no)
     //     return redirect('/owner/listbarang');
     // }
 }
+
+//U
+
+
 }
