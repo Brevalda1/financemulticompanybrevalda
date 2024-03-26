@@ -79,7 +79,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>admin</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Register</a></li>
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/pegawai">Register</a></li>
                         <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Manajemen Perusahaan</a></li>
                         
             

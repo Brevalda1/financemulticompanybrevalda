@@ -8,6 +8,7 @@ use App\Http\Controllers\biayapribadiController;
 use App\Http\Controllers\biayalainlainController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\detailbiayaoperationalproyekController;
+use App\Http\Controllers\pegawaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,3 +89,10 @@ Route::post("/detailbiayaoperationalproyekform", [detailbiayaoperationalproyekCo
 Route::get("/updatedetailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekedit"]);
 Route::post("/updatedetailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekupdate"]);
 Route::get("/deletedetailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekdelete"]);
+
+Route::get("/pegawai", [pegawaiController::class,"Pegawaiselect"]);
+Route::get("/pegawaiform", [pegawaiController::class,"Pegawaiform"]);
+Route::post("/pegawaiform", [pegawaiController::class,"Pegawaiinsert"]);
+Route::get("/updatepegawaiform/{no}", [pegawaiController::class,"Pegawaiedit"]);
+Route::post("/updatepegawaiform/{no}", [pegawaiController::class,"pegawaiupdate"]);
+Route::get("/deletepegawaiform/{no}", [pegawaiController::class,"pegawaidelete"]);
