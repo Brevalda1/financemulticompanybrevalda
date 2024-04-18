@@ -9,6 +9,7 @@ use App\Http\Controllers\biayalainlainController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\detailbiayaoperationalproyekController;
 use App\Http\Controllers\pegawaiController;
+use App\Http\Controllers\manajemenperusahaanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -96,3 +97,11 @@ Route::post("/pegawaiform", [pegawaiController::class,"Pegawaiinsert"]);
 Route::get("/updatepegawaiform/{no}", [pegawaiController::class,"Pegawaiedit"]);
 Route::post("/updatepegawaiform/{no}", [pegawaiController::class,"pegawaiupdate"]);
 Route::get("/deletepegawaiform/{no}", [pegawaiController::class,"pegawaidelete"]);
+
+
+Route::get("/manajemenperusahaan", [manajemenperusahaanController::class,"ManajemenPerusahaanselect"]);
+Route::get("/manajemenperusahaanform", [manajemenperusahaanController::class,"ManajemenPerusahaanform"]);
+Route::post("/manajemenperusahaanform", [manajemenperusahaanController::class,"ManajemenPerusahaaninsert"]);
+Route::get("/updatemanajemenperusahaanform/{no}", [manajemenperusahaanController::class,"ManajemenPerusahaanedit"]);
+Route::post("/updatemanajemenperusahaanform/{no}", [manajemenperusahaanController::class,"ManajemenPerusahaanupdate"]);
+Route::get("/deletemanajemenperusahaanform/{no}", [manajemenperusahaanController::class,"ManajemenPerusahaandelete"]);
