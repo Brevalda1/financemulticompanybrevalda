@@ -10,6 +10,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\detailbiayaoperationalproyekController;
 use App\Http\Controllers\pegawaiController;
 use App\Http\Controllers\manajemenperusahaanController;
+use App\Http\Controllers\approvalbiayaproyekController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -105,3 +106,7 @@ Route::post("/manajemenperusahaanform", [manajemenperusahaanController::class,"M
 Route::get("/updatemanajemenperusahaanform/{no}", [manajemenperusahaanController::class,"ManajemenPerusahaanedit"]);
 Route::post("/updatemanajemenperusahaanform/{no}", [manajemenperusahaanController::class,"ManajemenPerusahaanupdate"]);
 Route::get("/deletemanajemenperusahaanform/{no}", [manajemenperusahaanController::class,"ManajemenPerusahaandelete"]);
+
+Route::get("/approvalbiayaproyek", [approvalbiayaproyekController::class,"Approvalbiayaoperationalproyekselect"]);
+Route::get("/approvalbiayaproyekformaccept/{no}", [approvalbiayaproyekController::class,"Approvalbiayaoperationalproyekaccept"]);
+Route::get("/approvalbiayaproyekformdecline/{no}", [approvalbiayaproyekController::class,"Approvalbiayaoperationalproyekdecline"]);

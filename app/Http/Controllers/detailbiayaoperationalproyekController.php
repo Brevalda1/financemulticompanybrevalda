@@ -33,6 +33,7 @@ class detailbiayaoperationalproyekController extends Controller
         $form_bukti_detail_biaya_operational_proyek->move("DetailBiayaOperationalProyek",$namagambar);
 
         $new->cek_status_detail_biaya_operational_proyek=1;
+        $new->cek_approval_detail_biaya_operational_proyek=1;
   
         $new->save();
         return redirect("/detailbiayaoperationalproyeka");
@@ -47,7 +48,8 @@ public function Detailbiayaoperationalproyekselect()
         $param['datas'] = Session::get('datas');
     }
     else{
-        $data = DB::select("select * from detail_biaya_operational_proyek where cek_status_detail_biaya_operational_proyek = 1 order by created_at desc");
+        $data = DB::select("select * from detail_biaya_operational_proyek where cek_status_detail_biaya_operational_proyek = 1 and 
+        cek_approval_detail_biaya_operational_proyek = 1 order by created_at desc");
         $param['datas'] = $data;
         // dd($param['datas']);
     }
