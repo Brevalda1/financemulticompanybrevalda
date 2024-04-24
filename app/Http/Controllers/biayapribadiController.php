@@ -37,6 +37,7 @@ class biayapribadiController extends Controller
             $new->bukti_biaya_pribadi=$namagambar;
             $form_bukti_biaya_pribadi->move("BiayaPribadiBukti",$namagambar);
             $new->cek_status_biaya_pribadi=1;
+            $new->cek_approval_biaya_pribadi=2;
 
         
       
@@ -53,7 +54,8 @@ class biayapribadiController extends Controller
             $param['datas'] = Session::get('datas');
         }
         else{
-            $data = DB::select("select * from biaya_pribadi where cek_status_biaya_pribadi = 1 order by created_at desc");
+            $data = DB::select("select * from biaya_pribadi where cek_status_biaya_pribadi = 1 and 
+            cek_approval_biaya_pribadi = 1 order by created_at desc");
             $param['datas'] = $data;
             // dd($param['datas']);
         }

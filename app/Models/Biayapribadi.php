@@ -25,7 +25,7 @@ class Biayapribadi extends Model
         $new->tanggal_biaya_pribadi=$tanggal_biaya_pribadi;
         $new->jumlah_biaya_pribadi=$jumlah_biaya_pribadi;
         $new->bukti_biaya_pribadi=$bukti_biaya_pribadi;
-        $new->cek_status_biaya_pribadi=1;
+        $new->cek_status_biaya_pribadi=2;
         $new->save();
     }
 
