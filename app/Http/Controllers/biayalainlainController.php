@@ -60,6 +60,7 @@ public function Biayalainlainselect()
     }
     return view("biayalainlain.showbiayalainlain",$param);
 }
+
 public function Biayalainlainedit($no)
 {
     $new = new BiayaLainLain();
