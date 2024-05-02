@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Models\GajiPegawai;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\ActionsBlock;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\ContextBlock;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\SectionBlock;
@@ -22,7 +23,7 @@ class gajipegawaiController extends Controller
         return view("gajipegawai.formgajipegawai");
     }
     public function Gajipegawaiinsert(Request $req){
-        //echo($req->Fname);
+        // echo($req->Fname);
             $kop='sss';
             $vop=2131;
             $form_id_pegawai_gaji = $req->form_id_pegawai_gaji;
@@ -52,7 +53,19 @@ class gajipegawaiController extends Controller
             $new->nama_bank_pegawai_gaji=$form_nama_bank_pegawai_gaji;
       
 
-            $new->save();
+            // $new->save();
+            // $de='inv-';
+            // $du='wwr';
+            // $hasil = $de.$du;
+            //     $id = IdGenerator::generate(['table' => 'pegawai_gaji', 'length' => 10, 'prefix' => $hasil]);
+    
+            //     dd($id);
+            //     // $ud = IdGenerator::generate(['table' => 'pegawai_gaji', 'length' => 10, 'prefix' => 'INV-']);
+            //     // dd($ud);
+             
+            //     // $todo->save();
+            
+            
             return redirect("/gajipegawai");
           
         
