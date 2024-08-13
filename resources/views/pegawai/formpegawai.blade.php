@@ -43,8 +43,25 @@
               <option value="admin">admin</option>
 
             </select>
+            <div class="col col-md-3"><label for="select" class=" form-control-label">Perusahaan</label></div>
+            
+           
+            <select name="form_perusahaan" id="select" class="form-control">
+                @foreach ($datas as $data)
+                <option value="{{$data->kode_perusahaan}}">{{$data->nama_perusahaan}}</option>
+                @endforeach
+          
+
+            </select>
+
+            
      
         </div>
+
+
+        
+ 
+
             <div class="row">
                 
             </div>

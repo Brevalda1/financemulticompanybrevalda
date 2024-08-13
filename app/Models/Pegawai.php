@@ -13,16 +13,17 @@ class Pegawai extends Model
     public $incrementing = false;
     public $timestamps = true;
  
-    public function add($username,$password,$nama_pegawai,$role,$Nomor_telp_pegawai,$jabatan_pegawai)
+    public function add($username,$password,$nama_pegawai,$role,$Nomor_telp_pegawai,$jabatan_pegawai,$kode_perusahaan)
     {
         $new = new Pegawai();
         $new->username = $username;
         $new->password = $password;
         $new->nama_pegawai = $nama_pegawai;
         $new->role = $role;
-        $new->nomor_telp_pegawai = $nomor_telp_pegawai;
+        $new->nomor_telp_pegawai = $Nomor_telp_pegawai;
         $new->jabatan_pegawai=$jabatan_pegawai;
         $new->cek_status_pegawai=1;
+        $new->kode_perusahaan=$kode_perusahaan;
         $new->save();
     }
     function getPegawaiById($id)
@@ -32,7 +33,7 @@ class Pegawai extends Model
         return $dt;
     }
 
-    function updatePegawai($username,$password,$nama_pegawai,$role,$nomor_telp_pegawai,$jabatan_pegawai)
+    function updatePegawai($username,$password,$nama_pegawai,$role,$nomor_telp_pegawai,$jabatan_pegawai,$kode_perusahaan)
     
     {
         // dd($nomor_ktp_pegawai_gaji);
@@ -44,6 +45,7 @@ class Pegawai extends Model
         $new->role = $role;
         $new->nomor_telp_pegawai = $nomor_telp_pegawai;
         $new->jabatan_pegawai=$jabatan_pegawai;
+        $new->kode_perusahaan=$kode_perusahaan;
       
         $new->save();
     }

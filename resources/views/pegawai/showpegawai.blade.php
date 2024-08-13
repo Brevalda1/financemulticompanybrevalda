@@ -48,6 +48,7 @@
                         <th>role</th>
                         <th>nomor telp pegawai	</th>
                         <th>jabatan pegawai</th>
+                        <th>kode perusahaan</th>
                         <th>action</th>
            
                         
@@ -64,6 +65,7 @@
                           <td>{{$showpegawai->role}}</td>
                           <td>{{$showpegawai->nomor_telp_pegawai}}</td>
                           <td>{{$showpegawai->jabatan_pegawai}}</td>
+                          <td>{{$showpegawai->kode_perusahaan}}</td>
                         
                           <td><a href="/updatepegawaiform/{{$showpegawai->username}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
                             <a href="/deletepegawaiform/{{$showpegawai->username}}" ><button class="btn btn-danger" data-target="#edit" data-toggle="modal">delete</button></a>

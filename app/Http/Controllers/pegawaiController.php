@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ManajemenPerusahaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Pegawai;
 
+
 class pegawaiController extends Controller
 {
     //
     public function Pegawaiform(){
-        return view("pegawai.formpegawai");
+        $dataperusahaan = DB::select("select * from perusahaan where cek_status_perusahaan = 1 order by created_at desc");
+        $param['datas'] = $dataperusahaan;
+
+        return view("pegawai.formpegawai",$param);
     }
     public function Pegawaiinsert(Request $req){
         //echo($req->Fname);
@@ -27,6 +32,7 @@ class pegawaiController extends Controller
              $form_nomor_telp_pegawai    = $req->form_nomor_telp_pegawai;
          $form_jabatan_pegawai  = $req->form_jabatan_pegawai;
 
+         $form_perusahaan = $req->form_perusahaan;
 
             $pass = Hash::make($form_jabatan_pegawai);
 
@@ -47,6 +53,7 @@ class pegawaiController extends Controller
             $new->nomor_telp_pegawai=$form_nomor_telp_pegawai;
             $new->jabatan_pegawai=$form_jabatan_pegawai;
             $new->cek_status_pegawai=1;
+            $new->kode_perusahaan=$form_perusahaan;
       
 
             $new->save();
@@ -65,11 +72,14 @@ class pegawaiController extends Controller
             $data = DB::select("select * from pegawai where cek_status_pegawai = 1 order by created_at desc");
             $param['datas'] = $data;
             // dd($param['datas']);
+            
         }
         return view("pegawai.showpegawai",$param);
     }
     public function Pegawaiedit($no)
     {
+        $dataperusahaan = DB::select("select * from perusahaan where cek_status_perusahaan = 1 order by created_at desc");
+        $param['datas'] = $dataperusahaan;
         $new = new Pegawai();
         // $barang = new Barang();
         $arrBarang = $new->getPegawaiById($no);
@@ -80,11 +90,12 @@ class pegawaiController extends Controller
             $data['role'] = $dt->role;
             $data['nomor_telp_pegawai'] = $dt->nomor_telp_pegawai;
             $data['jabatan_pegawai'] = $dt->jabatan_pegawai;
+            $data['kode_perusahaan'] = $dt->kode_perusahaan;
           
 
         }
         $data['username'] = $no;
-        return view('pegawai.editpegawai', $data);
+        return view('pegawai.editpegawai', $data,$param);
   
     }
 
@@ -100,6 +111,7 @@ class pegawaiController extends Controller
         $req->form_role,
         $req->form_nomor_telp_pegawai,
         $req->form_jabatan_pegawai,
+        $req->form_perusahaan
       
         );
 
@@ -118,4 +130,6 @@ public function Pegawaidelete($no)
         //     return redirect('/owner/listbarang');
         // }
     }
+
+    
 }
