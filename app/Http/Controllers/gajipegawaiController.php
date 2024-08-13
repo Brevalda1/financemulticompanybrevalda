@@ -20,7 +20,14 @@ class gajipegawaiController extends Controller
     //     return view("showgajipegawai");
     // }
     public function Gajipegawaiform(){
-        return view("gajipegawai.formgajipegawai");
+        $sessiondata = Session()->get('login');
+       
+        $namadatapegawai= DB::select("select * from pegawai_gaji");
+        $lempar=count($namadatapegawai)+1;
+    
+        $kodegajipegawai = $sessiondata['kode_perusahaan']."_GJP_".$lempar;
+        $param["kode"]=$kodegajipegawai;
+        return view("gajipegawai.formgajipegawai",$param);
     }
     public function Gajipegawaiinsert(Request $req){
         // echo($req->Fname);
@@ -51,9 +58,10 @@ class gajipegawaiController extends Controller
             $new->jabatan_pegawai_gaji = $form_jabatan_pegawai_gaji;
             $new->nomor_rekening_pegawai_gaji =$form_nomor_rekening_pegawai_gaji;
             $new->nama_bank_pegawai_gaji=$form_nama_bank_pegawai_gaji;
+            $new->cek_aktif_gajipegawai=1;
       
 
-            // $new->save();
+            $new->save();
             // $de='inv-';
             // $du='wwr';
             // $hasil = $de.$du;
@@ -65,6 +73,7 @@ class gajipegawaiController extends Controller
              
             //     // $todo->save();
             
+            // dd($new);
             
             return redirect("/gajipegawai");
           
@@ -74,11 +83,13 @@ class gajipegawaiController extends Controller
 
     public function Gajipegawaiselect()
     {
+        $sessiondata = Session()->get('login');
+        $kodeidpegawai = $sessiondata['kode_perusahaan'];
         if(Session::Has('datas')){
             $param['datas'] = Session::get('datas');
         }
         else{
-            $data = DB::select("select * from pegawai_gaji where cek_aktif_gajipegawai = 1 order by created_at desc");
+            $data = DB::select("select * from pegawai_gaji where cek_aktif_gajipegawai = 1 AND id_pegawai_gaji like '$kodeidpegawai%' order by created_at desc");
             $param['datas'] = $data;
             // dd($param['datas']);
         }

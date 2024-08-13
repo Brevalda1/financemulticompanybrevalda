@@ -34,7 +34,7 @@ class pegawaiController extends Controller
 
          $form_perusahaan = $req->form_perusahaan;
 
-            $pass = Hash::make($form_jabatan_pegawai);
+            $pass = Hash::make($form_password);
 
  
         // $new = new Pegawai();

@@ -48,8 +48,9 @@ class loginController extends Controller
                 // }
                 if($req->input('usernamee') ==  $key->username && password_verify($req->input('pass'),$key->password)){
                     
-                    $users = $key->username;
+                    $users = ["username"=>$key->username,"kode_perusahaan"=>$key->kode_perusahaan];
                     session()->put('login',$users);
+                    //  dd($users);
                     return redirect('/gajipegawai');
                 }
             }
