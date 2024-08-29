@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label for="cc-payment" class="control-label mb-1">Kode biaya pribadi</label>
-                <input id="cc-pament" name="form_kode_biaya_pribadi" type="text" class="form-control" aria-required="true" aria-invalid="false" >
+                <input id="cc-pament" name="form_kode_biaya_pribadi" type="text" class="form-control" aria-required="true" aria-invalid="false" value="{{$kode}}"readonly >
             </div>
             <div class="form-group">
                 <label for="cc-payment" class="control-label mb-1">jenis pengeluaran</label>

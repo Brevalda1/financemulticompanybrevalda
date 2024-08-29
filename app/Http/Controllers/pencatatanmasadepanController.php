@@ -11,7 +11,16 @@ class pencatatanmasadepanController extends Controller
 {
    
     public function Pencatatanmasadepanform(){
-        return view("pencatatanmasadepan.formpencatatanmasadepan");
+        $sessiondata = Session()->get('login');
+       
+        $namadatapegawai= DB::select("select * from pencatatan_biaya_untuk_masa_depan");
+        $lempar=count($namadatapegawai)+1;
+    
+        $kodegajipegawai = $sessiondata['kode_perusahaan']."_PCTBUMD_".$lempar;
+        $param["kode"]=$kodegajipegawai;
+ 
+  
+        return view("pencatatanmasadepan.formpencatatanmasadepan",$param);
     }
   
     public function Pencatatanmasadepaninsert(Request $req){

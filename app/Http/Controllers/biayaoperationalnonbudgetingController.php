@@ -13,7 +13,17 @@ class biayaoperationalnonbudgetingController extends Controller
     //     return view("showbiayaoperationalnonbudgeting");
     // }
     public function Biayaoperationalnonbudgetingform(){
-        return view("biayaoperationalnonbudgeting.formbiayaoperationalnonbudgeting");
+        $sessiondata = Session()->get('login');
+       
+        $namadatapegawai= DB::select("select * from biaya_operational_non_budgeting");
+        $lempar=count($namadatapegawai)+1;
+    
+        $kodegajipegawai = $sessiondata['kode_perusahaan']."_BONB_".$lempar;
+        $param["kode"]=$kodegajipegawai;
+   
+       
+
+        return view("biayaoperationalnonbudgeting.formbiayaoperationalnonbudgeting",$param);
     }
     public function Biayaoperationalnonbudgetinginsert(Request $req){
 

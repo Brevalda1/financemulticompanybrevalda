@@ -14,7 +14,17 @@ class biayalainlainController extends Controller
         return view("biayalainlain.showbiayalainlain");
     }
     public function Biayalainlainform(){
-        return view("biayalainlain.formbiayalainlain");
+        $sessiondata = Session()->get('login');
+       
+        $namadatapegawai= DB::select("select * from biaya_lainlain");
+        $lempar=count($namadatapegawai)+1;
+    
+        $kodegajipegawai = $sessiondata['kode_perusahaan']."_BLL_".$lempar;
+        $param["kode"]=$kodegajipegawai;
+   
+       
+  
+        return view("biayalainlain.formbiayalainlain",$param);
     }
     public function Biayalainlaininsert(Request $req){
 

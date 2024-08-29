@@ -13,7 +13,15 @@ class biayaoperationalproyekController extends Controller
     //     return view("biayaoperationalproyek.showbiayaoperationalproyek");
     // }
     public function Biayaoperationalproyekform(){
-        return view("biayaoperationalproyek.formbiayaoperationalproyek");
+        $sessiondata = Session()->get('login');
+       
+        $namadatapegawai= DB::select("select * from header_biaya_operational_proyek");
+        $lempar=count($namadatapegawai)+1;
+    
+        $kodegajipegawai = $sessiondata['kode_perusahaan']."_BOP_".$lempar;
+        $param["kode"]=$kodegajipegawai;
+   
+        return view("biayaoperationalproyek.formbiayaoperationalproyek",$param);
     }
     public function BiayaOperationalProyekinsert(Request $req){
 

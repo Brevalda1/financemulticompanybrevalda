@@ -13,7 +13,16 @@ class biayapribadiController extends Controller
     //     return view("biayapribadi.showbiayapribadi");
     // }
     public function Biayapribadiform(){
-        return view("biayapribadi.formbiayapribadi");
+        $sessiondata = Session()->get('login');
+       
+        $namadatapegawai= DB::select("select * from biaya_pribadi");
+        $lempar=count($namadatapegawai)+1;
+    
+        $kodegajipegawai = $sessiondata['kode_perusahaan']."_BPR_".$lempar;
+        $param["kode"]=$kodegajipegawai;
+   
+       
+        return view("biayapribadi.formbiayapribadi",$param);
     }
     public function Biayapribadiinsert(Request $req){
 

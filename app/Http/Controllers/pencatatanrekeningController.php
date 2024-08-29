@@ -14,7 +14,16 @@ class pencatatanrekeningController extends Controller
     //     return view("pencatatanrekening.showpencatatanrekening");
     // }
     public function Pencatatanrekeningform(){
-        return view("pencatatanrekening.formpencatatanrekening");
+        $sessiondata = Session()->get('login');
+       
+        $namadatapegawai= DB::select("select * from pencatatan_rekening_partner");
+        $lempar=count($namadatapegawai)+1;
+    
+        $kodegajipegawai = $sessiondata['kode_perusahaan']."_PCTREK_".$lempar;
+        $param["kode"]=$kodegajipegawai;
+ 
+    
+        return view("pencatatanrekening.formpencatatanrekening",$param);
     }
 
 
