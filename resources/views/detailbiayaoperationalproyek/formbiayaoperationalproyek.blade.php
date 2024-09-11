@@ -13,10 +13,13 @@
             <div class="form-group text-center">
                 @csrf
             </div>
-                {{-- <div class="form-group">
+                <div class="form-group">
                     <label for="cc-payment" class="control-label mb-1">Kode proyek</label>
-                    <input id="cc-pament" name="form_kode_biaya_detail_operational_proyek" type="text" class="form-control" aria-required="true" aria-invalid="false" >
-                </div> --}}
+                    <input id="cc-pament" name="form_kode_biaya_detail_operational_proyek" type="text" class="form-control" aria-required="true" aria-invalid="false" value="{{$kode}}"readonly>
+                </div>
+             
+                    <input id="cc-pament" name="form_fk_header_biaya_operational" type="hidden" class="form-control" aria-required="true" aria-invalid="false" value="{{$ids}}"readonly>
+                
             <div class="form-group">
                 <label for="cc-payment" class="control-label mb-1">Nama Proyek</label>
                 <input id="cc-pament" name="form_nama_biaya_detail_operational_proyek" type="text" class="form-control" aria-required="true" aria-invalid="false" >

@@ -63,7 +63,7 @@
                         <td>{{$showbiayaoperationalproyek->tanggal_pelaksanaan_biaya_operational_proyek}}</td>
  
                         <td>
-                          <a href="/updatebiayaoperationalproyekform/{{$showbiayaoperationalproyek->kode_biaya_operational_proyek}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">tambah detil</button></a>
+                          <a href="/detailbiayaoperationalproyeka/{{$showbiayaoperationalproyek->kode_biaya_operational_proyek}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">tambah detil</button></a>
                         <a href="/updatebiayaoperationalproyekform/{{$showbiayaoperationalproyek->kode_biaya_operational_proyek}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
                           <a href="/deletebiayaoperationalproyekform/{{$showbiayaoperationalproyek->kode_biaya_operational_proyek}}" ><button class="btn btn-danger" data-target="#edit" data-toggle="modal">delete</button></a>
                         </td>

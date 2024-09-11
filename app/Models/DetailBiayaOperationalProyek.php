@@ -43,7 +43,7 @@ class DetailBiayaOperationalProyek extends Model
         // dd($nomor_ktp_pegawai_gaji);
         $new = DetailBiayaOperationalProyek::find($kode_biaya_detail_operational_proyek);
         $new->nama_biaya_detail_biaya_operational_proyek = $nama_biaya_detail_operational_proyek;
-        $new->nama_biaya_detail_biaya_operational_proyek=$jumlah_detail_operational_proyek;
+        $new->jumlah_detail_biaya_operational_proyek=$jumlah_detail_operational_proyek;
         $new->harga_detail_biaya_operational_proyek = $harga_detail_biaya_operational_proyek;
         $new->bukti_detail_biaya_operational_proyek=$bukti_detail_biaya_operational_proyek;
         $new->bukti_detail_biaya_operational_proyek=$namagambar;

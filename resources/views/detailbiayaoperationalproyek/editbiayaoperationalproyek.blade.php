@@ -44,7 +44,16 @@
                     <span id="payment-button-sending" style="display:none;">Sending…</span>
                 </button>
             </div>
+           
         </form>
+        <div>
+            <a href="{{url('/detailbiayaoperationalproyeka/'.$kodeperus)}}"><button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                <i class="fa fa-lock fa-lg"></i>&nbsp;
+                <span id="payment-button-amount" >back</span>
+                <span id="payment-button-sending" style="display:none;">Sending…</span>
+            </button></a>
+            
+        </div>
     </div>
 </div>
 

@@ -87,9 +87,10 @@ Route::post("/updatebiayalainlainform/{no}", [biayalainlainController::class,"Bi
 Route::get("/deletebiayalainlainform/{no}", [biayalainlainController::class,"Biayalainlaindelete"]);
 
 Route::get("/detailbiayaoperationalproyeka", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekselect"]);
-Route::get("/detailbiayaoperationalproyekform", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekform"]);
-Route::post("/detailbiayaoperationalproyekform", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekinsert"]);
-Route::get("/updatedetailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekedit"]);
+Route::get("/detailbiayaoperationalproyeka/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekselect"]);
+Route::get("/detailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekform"]);
+Route::post("/detailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekinsert"]);
+Route::get("/updatedetailbiayaoperationalproyekform/{no}/{kode}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekedit"]);
 Route::post("/updatedetailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekupdate"]);
 Route::get("/deletedetailbiayaoperationalproyekform/{no}", [detailbiayaoperationalproyekController::class,"Detailbiayaoperationalproyekdelete"]);
 

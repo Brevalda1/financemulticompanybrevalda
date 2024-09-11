@@ -35,8 +35,21 @@
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">biaya operational proyek</strong>
-        
-                            <a class="btn btn-primary" href="/detailbiayaoperationalproyekform" role="button">tambah data</a>
+                            <div class="row">
+                              <div class="col-md-3">
+                            <h5></h5>
+                          </div>
+                          <div class="col-md-3">
+                            <h5></h5>
+                          </div>
+                          <div class="col-md-3">
+                            <h5></h5>
+                          </div>
+                          <div class="col-md-3">
+                            <h5>{{$sum}}/{{$budget}}</h5>
+                          </div>
+                            </div>
+                            <a class="btn btn-primary" href="/detailbiayaoperationalproyekform/{{$kodeperus}}" role="button">tambah data</a>
                         </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -65,7 +78,7 @@
                           <img src="{{asset('DetailBiayaOperationalProyek').'/'.$showdetailbiayaoperationalproyek->bukti_detail_biaya_operational_proyek}}" width='50' height='50'></td>
                         <td>
                        
-                        <a href="/updatedetailbiayaoperationalproyekform/{{$showdetailbiayaoperationalproyek->kode_biaya_detail_operational_proyek}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
+                        <a href="/updatedetailbiayaoperationalproyekform/{{$showdetailbiayaoperationalproyek->kode_biaya_detail_operational_proyek.'/'.$kodeperus}}" ><button class="btn btn-info" data-target="#edit" data-toggle="modal">edit</button></a>
                           <a href="/deletedetailbiayaoperationalproyekform/{{$showdetailbiayaoperationalproyek->kode_biaya_detail_operational_proyek}}" ><button class="btn btn-danger" data-target="#edit" data-toggle="modal">delete</button></a>
                         </td>
 
