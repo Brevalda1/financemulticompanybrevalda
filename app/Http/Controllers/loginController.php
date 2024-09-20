@@ -28,6 +28,11 @@ class loginController extends Controller
         // $new->save();
       
     }
+    public function Logout(Request $req){
+        session()->flush();
+        return redirect('/');
+
+    }
     public function Plogin(Request $req)
     {
         if($req->input('usernamee') == "admin" && $req->input('pass') == "admin"){
@@ -47,7 +52,8 @@ class loginController extends Controller
                    
                 // }
                 if($req->input('usernamee') ==  $key->username && password_verify($req->input('pass'),$key->password)){
-                    
+                    $role=$key->role;
+                    session()->put('role',$role);
                     $users = ["username"=>$key->username,"kode_perusahaan"=>$key->kode_perusahaan];
                     session()->put('login',$users);
                     //  dd($users);

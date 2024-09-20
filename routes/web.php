@@ -33,8 +33,10 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get("/", [gajipegawaiController::class,"Gajipegawai"]);
 Route::get("/", [loginController::class,"Login"]);
+Route::get("/logout", [loginController::class,"Logout"]);
 // Route::get("/", [gajipegawaiController::class,"Gajipegawaiselect"]);
 Route::get("/gajipegawai", [gajipegawaiController::class,"Gajipegawaiselect"]);
+
 Route::get("/users",[loginController::class,"Userss"]);
 Route::post("/",[loginController::class,"Plogin"]);
 Route::get("/gajipegawaiform", [gajipegawaiController::class,"Gajipegawaiform"]);

@@ -11,7 +11,7 @@ class detailbiayaoperationalproyekController extends Controller
 {
     public function Detailbiayaoperationalproyekform($id){
 
-        $namadatapegawai= DB::select("select * from detail_biaya_operational_proyek where fk_header_biaya_operational = '$id'");
+        $namadatapegawai= DB::select("select * from detail_biaya_operational_proyek where fk_header_biaya_operational = '$id' AND  cek_approval_detail_biaya_operational_proyek = 1");
         $lempar=count($namadatapegawai)+1;
 
         $param["kode"]=$id.'_detail_'.$lempar;
@@ -20,10 +20,17 @@ class detailbiayaoperationalproyekController extends Controller
         return view("detailbiayaoperationalproyek.formbiayaoperationalproyek",$param);
         // echo $id;
     }
-    public function Detailbiayaoperationalproyekinsert(Request $req){
-
-      
-
+    public function Detailbiayaoperationalproyekinsert(Request $req,$id){
+        // $param['kodeperus']=$id;
+        // echo $id;
+        $budget = DB::select("select budget_biaya_operational_proyek as b from header_biaya_operational_proyek where kode_biaya_operational_proyek = '$id'");
+        $sum= DB::select("select SUM(db.harga_detail_biaya_operational_proyek) as a from detail_biaya_operational_proyek db where db.fk_header_biaya_operational='$id'");
+        $param['budget']=number_format($budget[0]->b);
+    
+        $param['sum']=number_format($sum[0]->a);
+// echo number_format($sum[0]->a),number_format($budget[0]->b);
+        if($sum[0]->a > $budget[0]->b){
+     
         $form_kode_biaya_detail_operational_proyek = $req->form_kode_biaya_detail_operational_proyek;
         $form_nama_biaya_detail_operational_proyek =$req->form_nama_biaya_detail_operational_proyek;
         $form_jumlah_detail_biaya_operational_proyek =$req->form_jumlah_detail_biaya_operational_proyek;
@@ -43,11 +50,65 @@ class detailbiayaoperationalproyekController extends Controller
 
 
         $new->cek_status_detail_biaya_operational_proyek=1;
-        $new->cek_approval_detail_biaya_operational_proyek=1;
+        $new->cek_approval_detail_biaya_operational_proyek=2;
         $new->fk_header_biaya_operational = $form_fk_header_biaya_operational;
   
         $new->save();
         return redirect('/biayaoperationalproyek');
+       
+        }else{
+            
+            $form_kode_biaya_detail_operational_proyek = $req->form_kode_biaya_detail_operational_proyek;
+            $form_nama_biaya_detail_operational_proyek =$req->form_nama_biaya_detail_operational_proyek;
+            $form_jumlah_detail_biaya_operational_proyek =$req->form_jumlah_detail_biaya_operational_proyek;
+            $form_harga_detail_biaya_operational_proyek =$req->form_harga_detail_biaya_operational_proyek;
+            $form_bukti_detail_biaya_operational_proyek =$req->form_bukti_detail_biaya_operational_proyek;
+            $namagambar = $form_bukti_detail_biaya_operational_proyek->getClientOriginalName();
+            $form_fk_header_biaya_operational = $req->form_fk_header_biaya_operational;
+    
+            $new = new DetailBiayaOperationalProyek();
+            $new->kode_biaya_detail_operational_proyek = $form_kode_biaya_detail_operational_proyek;
+            $new->nama_biaya_detail_biaya_operational_proyek	 = $form_nama_biaya_detail_operational_proyek;
+            $new->jumlah_detail_biaya_operational_proyek=$form_jumlah_detail_biaya_operational_proyek;
+            $new->harga_detail_biaya_operational_proyek = $form_harga_detail_biaya_operational_proyek;
+            $new->bukti_detail_biaya_operational_proyek = $form_bukti_detail_biaya_operational_proyek;
+            $new->bukti_detail_biaya_operational_proyek=$namagambar;
+            $form_bukti_detail_biaya_operational_proyek->move("DetailBiayaOperationalProyek",$namagambar);
+    
+    
+            $new->cek_status_detail_biaya_operational_proyek=1;
+            $new->cek_approval_detail_biaya_operational_proyek=1;
+            $new->fk_header_biaya_operational = $form_fk_header_biaya_operational;
+      
+            $new->save();
+            return redirect('/biayaoperationalproyek');
+        }
+
+
+        // $form_kode_biaya_detail_operational_proyek = $req->form_kode_biaya_detail_operational_proyek;
+        // $form_nama_biaya_detail_operational_proyek =$req->form_nama_biaya_detail_operational_proyek;
+        // $form_jumlah_detail_biaya_operational_proyek =$req->form_jumlah_detail_biaya_operational_proyek;
+        // $form_harga_detail_biaya_operational_proyek =$req->form_harga_detail_biaya_operational_proyek;
+        // $form_bukti_detail_biaya_operational_proyek =$req->form_bukti_detail_biaya_operational_proyek;
+        // $namagambar = $form_bukti_detail_biaya_operational_proyek->getClientOriginalName();
+        // $form_fk_header_biaya_operational = $req->form_fk_header_biaya_operational;
+
+        // $new = new DetailBiayaOperationalProyek();
+        // $new->kode_biaya_detail_operational_proyek = $form_kode_biaya_detail_operational_proyek;
+        // $new->nama_biaya_detail_biaya_operational_proyek	 = $form_nama_biaya_detail_operational_proyek;
+        // $new->jumlah_detail_biaya_operational_proyek=$form_jumlah_detail_biaya_operational_proyek;
+        // $new->harga_detail_biaya_operational_proyek = $form_harga_detail_biaya_operational_proyek;
+        // $new->bukti_detail_biaya_operational_proyek = $form_bukti_detail_biaya_operational_proyek;
+        // $new->bukti_detail_biaya_operational_proyek=$namagambar;
+        // $form_bukti_detail_biaya_operational_proyek->move("DetailBiayaOperationalProyek",$namagambar);
+
+
+        // $new->cek_status_detail_biaya_operational_proyek=1;
+        // $new->cek_approval_detail_biaya_operational_proyek=1;
+        // $new->fk_header_biaya_operational = $form_fk_header_biaya_operational;
+  
+        // $new->save();
+        // return redirect('/biayaoperationalproyek');
         // return to_route('/detailbiayaoperationalproyeka', ['id' => $form_fk_header_biaya_operational]);
         // return view("detailbiayaoperationalproyek.showbiayaoperationalproyek",$form_bukti_detail_biaya_operational_proyek);
 
@@ -63,13 +124,14 @@ public function Detailbiayaoperationalproyekselect($id)
         $param['datas'] = Session::get('datas');
     }
     else{
-        $data = DB::select("select * from detail_biaya_operational_proyek where cek_status_detail_biaya_operational_proyek = 1 and 
+        $data = DB::select("select * from detail_biaya_operational_proyek where fk_header_biaya_operational = '$id' and cek_status_detail_biaya_operational_proyek = 1 and 
         cek_approval_detail_biaya_operational_proyek = 1 order by created_at desc");
         $param['datas'] = $data;
        
     }
     $budget = DB::select("select budget_biaya_operational_proyek as b from header_biaya_operational_proyek where kode_biaya_operational_proyek = '$id'");
     $sum= DB::select("select SUM(db.harga_detail_biaya_operational_proyek) as a from detail_biaya_operational_proyek db where db.fk_header_biaya_operational='$id'");
+
 
     $param['budget']=number_format($budget[0]->b);
     
