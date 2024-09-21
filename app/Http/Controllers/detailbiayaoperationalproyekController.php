@@ -24,7 +24,7 @@ class detailbiayaoperationalproyekController extends Controller
         // $param['kodeperus']=$id;
         // echo $id;
         $budget = DB::select("select budget_biaya_operational_proyek as b from header_biaya_operational_proyek where kode_biaya_operational_proyek = '$id'");
-        $sum= DB::select("select SUM(db.harga_detail_biaya_operational_proyek) as a from detail_biaya_operational_proyek db where db.fk_header_biaya_operational='$id'");
+        $sum= DB::select("select SUM(db.harga_detail_biaya_operational_proyek) as a from detail_biaya_operational_proyek db where db.fk_header_biaya_operational='$id' ");
         $param['budget']=number_format($budget[0]->b);
     
         $param['sum']=number_format($sum[0]->a);
@@ -130,7 +130,7 @@ public function Detailbiayaoperationalproyekselect($id)
        
     }
     $budget = DB::select("select budget_biaya_operational_proyek as b from header_biaya_operational_proyek where kode_biaya_operational_proyek = '$id'");
-    $sum= DB::select("select SUM(db.harga_detail_biaya_operational_proyek) as a from detail_biaya_operational_proyek db where db.fk_header_biaya_operational='$id'");
+    $sum= DB::select("select SUM(db.harga_detail_biaya_operational_proyek) as a from detail_biaya_operational_proyek db where db.fk_header_biaya_operational='$id'and cek_approval_detail_biaya_operational_proyek = 1 and cek_status_detail_biaya_operational_proyek=1");
 
 
     $param['budget']=number_format($budget[0]->b);
