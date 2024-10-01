@@ -11,7 +11,7 @@ class detailbiayaoperationalproyekController extends Controller
 {
     public function Detailbiayaoperationalproyekform($id){
 
-        $namadatapegawai= DB::select("select * from detail_biaya_operational_proyek where fk_header_biaya_operational = '$id' AND  cek_approval_detail_biaya_operational_proyek = 1");
+        $namadatapegawai= DB::select("select * from detail_biaya_operational_proyek where fk_header_biaya_operational = '$id'");
         $lempar=count($namadatapegawai)+1;
 
         $param["kode"]=$id.'_detail_'.$lempar;
