@@ -37,10 +37,25 @@
                             <strong class="card-title">Gaji pegawai</strong>
                             
                             <a class="btn btn-primary" href="/gajipegawaiform" role="button">tambah data</a>
-                            
+                            <div class="form-group">
+                           
+                            </div>
                         </div>
                         <div class="card-body">
+                          <label for="cc-payment" class="control-label mb-1">cari</label>
+                              <input id="form_id_pegawai_gaji" name="form_id_pegawai_gaji" type="text" class="form-control" aria-required="true" aria-invalid="false" >
+                        <br>
+                           
+     
+                              <select name="form_role" id="select" class="form-control">
+                                <option value="id_pegawai_gaji">ID pegawai</option>
+                                <option value="nomor_ktp_pegawai_gaji">Nomor Ktp</option>
+                                <option value="nama_pegawai_gaji">nama pegawai </option>
+                  
+                              </select><br>
+                              <a class="btn btn-primary" href="/gajipegawaiform" role="button">search</a>  <br>
                   <table id="bootstrap-data-table" class="table table-striped table-bordered table-responsive">
+                  
                     <thead>
                       <tr>
                         <th>ID Pegawai</th>

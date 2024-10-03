@@ -114,7 +114,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>biaya</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="/biayaoperationalproyek">Biaya operational proyek</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i><a href="/biayaoperationalproyeka">Biaya operational proyek</a></li>
                         <li><i class="fa fa-id-badge"></i><a href="/biayapribadi">Biaya pribadi</a></li>
                         <li><i class="fa fa-bars"></i><a href="biayalainlain">Biaya lain-lain</a></li>
                         <li><i class="fa fa-share-square-o"></i><a href="/biayaoperationalnonbudgeting">Biaya operational non budgeting</a></li>
@@ -198,7 +198,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>biaya</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="/biayaoperationalproyek">Biaya operational proyek</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i><a href="/biayaoperationalproyeka">Biaya operational proyek</a></li>
                         <li><i class="fa fa-id-badge"></i><a href="/biayapribadi">Biaya pribadi</a></li>
                         <li><i class="fa fa-bars"></i><a href="biayalainlain">Biaya lain-lain</a></li>
                         <li><i class="fa fa-share-square-o"></i><a href="/biayaoperationalnonbudgeting">Biaya operational non budgeting</a></li>
@@ -236,7 +236,7 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/approvalbiayaproyek">Approval biaya proyek</a></li>
                         <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/approvalbiayapribadi">Approval biaya pribadi</a></li>
-                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Project budgeting</a></li>
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/biayaoperationalproyek">Project budgeting</a></li>
             
                 
 

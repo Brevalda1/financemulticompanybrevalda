@@ -63,6 +63,18 @@ public function BiayaOperationalProyekselect()
     }
     return view("BiayaOperationalProyek.showBiayaOperationalProyek",$param);
 }
+public function BiayaOperationalProyekselecta()
+{
+    if(Session::Has('datas')){
+        $param['datas'] = Session::get('datas');
+    }
+    else{
+        $data = DB::select("select * from header_biaya_operational_proyek where cek_status_header_biaya_operational_proyek = 1 order by created_at desc");
+        $param['datas'] = $data;
+        // dd($param['datas']);
+    }
+    return view("BiayaOperationalProyek.showBiayaOperationalProyekshow",$param);
+}
 
 public function BiayaOperationalProyekedit($no)
 {

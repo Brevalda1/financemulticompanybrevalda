@@ -67,6 +67,7 @@ Route::post("/updatebiayapribadiform/{no}", [biayapribadiController::class,"Biay
 Route::get("/deletebiayapribadiform/{no}", [biayapribadiController::class,"Biayapribadidelete"]);
 
 Route::get("/biayaoperationalproyek", [biayaoperationalproyekController::class,"Biayaoperationalproyekselect"]);
+Route::get("/biayaoperationalproyeka", [biayaoperationalproyekController::class,"Biayaoperationalproyekselecta"]);
 Route::get("/biayaoperationalproyekform", [biayaoperationalproyekController::class,"Biayaoperationalproyekform"]);
 Route::post("/biayaoperationalproyekform", [biayaoperationalproyekController::class,"Biayaoperationalproyekinsert"]);
 Route::get("/updatebiayaoperationalproyekform/{no}", [biayaoperationalproyekController::class,"Biayaoperationalproyekedit"]);
